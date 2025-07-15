@@ -1,0 +1,491 @@
+Course Outline
+introduction to Python
+Input, Processing, and Output
+Decision Structures and Boolean Logic
+Repetition Structures
+Functions
+Files and Exceptions
+Lists and Tuples
+Strings
+Dictionaries and Set
+Classes and Object-Oriented Programming
+Inheritance
+GUI Programming
+
+Variable Naming Rules
+Although you are allowed to make up your own names for variables, you must follow these
+rules:
+•	 You cannot use one of Python’s key words as a variable name. (See Table 1-2 for a
+list of the key words.)
+•	 A variable name cannot contain spaces.
+•	 The first character must be one of the letters a through z, A through Z, or an underscore character (_).
+•	 After the first character you may use the letters a through z or A through Z, the digits
+0 through 9, or underscores.
+•	 Uppercase and lowercase characters are distinct. This means the variable name
+ItemsOrdered is not the same as itemsordered.
+
+# This program demonstrates a variable.
+room = 503
+print('I am staying in room number', room)
+
+Numeric Data Types and Literals
+Because different types of numbers are stored and manipulated in different ways, Python
+uses data types to categorize values in memory. When an integer is stored in memory, it is
+classified as an int, and when a real number is stored in memory, it is classified as a float.
+
+room = 503
+This statement causes the value 503 to be stored in memory, and it makes the room variable reference it.
+
+dollars = 2.75
+This statement causes the value 2.75 to be stored in memory, and it makes the dollars variable reference it. A number that is written into a program’s code is called a numeric literal. 
+
+When the Python interpreter reads a numeric literal in a program’s code, it determines its
+data type according to the following rules:
+•	 A numeric literal that is written as a whole number with no decimal point is considered an int. Examples are 7, 124, and −9.
+•	 A numeric literal that is written with a decimal point is considered a float. Examples
+are 1.5, 3.14159, and 5.0
+
+you can use the built-in type function in interactive mode to determine
+the data type of a value.
+type(1.0)
+
+Reading Input from the Keyboard
+# Get the user's first name.
+first_name = input('Enter your first name: ')
+# Get the user's last name.
+last_name = input('Enter your last name: ')
+
+# Print a greeting to the user.
+print('Hello', first_name, last_name)
+
+Reading Numbers with the input Function
+The input function always returns the user’s input as a string, even if the user enters
+numeric data.
+
+Function    Description
+int(item)   You pass an argument to the int() function and it returns the argument’s
+value converted to an int.
+float(item) You pass an argument to the float() function and it returns the argument’s
+value converted to a float.
+hours = int(input('How many hours did you work? '))
+print(hours)
+
+ # Get the user's name, age, and income.
+name = input('What is your name? ')
+age = int(input('What is your age? '))
+income = float(input('What is your income? '))
+
+# Display the data.
+print('Here is the data you entered:')
+print('Name:', name)
+print('Age:', age)
+print('Income:', income)
+
+Python has numerous operators that can be used to perform mathematical
+calculations.
+Symbol Operation Description
++ Addition Adds two numbers
+− Subtraction Subtracts one number from another
+* Multiplication Multiplies one number by another
+/ Division Divides one number by another and gives the result as
+a floating-point number
+// Integer division Divides one number by another and gives the result as
+a whole number
+% Remainder Divides one number by another and gives the remainder
+** Exponent Raises a number to a power
+
+
+
+
+This program gets an item's original price and
+calculates its sale price, with a 20% discount
+# Get the item's original price.
+original_price = float(input("Enter the item's original price: "))
+
+# Calculate the amount of the discount.
+discount = original_price * 0.2
+
+# Calculate the sale price.
+sale_price = original_price − discount
+
+# Display the sale price.
+print('The sale price is', sale_price)
+
+
+
+# Get three test scores and assign them to the
+# test1, test2, and test3 variables.
+# Calculate the average of the three scores
+
+ # Get three test scores and assign them to the
+# test1, test2, and test3 variables.
+test1 = float(input('Enter the first test score: '))
+test2 = float(input('Enter the second test score: '))
+test3 = float(input('Enter the third test score: '))
+
+# Calculate the average of the three scores
+# and assign the result to the average variable.
+average = (test1 + test2 + test3) / 3.0
+
+# Display the average.
+print('The average score is', average)
+
+ Python also provides an exponent operator. Two asterisks written together (**) is
+the exponent operator,
+area = length**2
+print(area)
+
+In Python, the % symbol is the remainder operator. (This is also known as the modulus
+operator.) 
+leftover = 17 % 3
+print(leftover)
+
+# Get a number of seconds from the user.
+# Get the number of hours.
+# Get the number of remaining minutes.
+# Get the number of remaining seconds.
+# Get a number of seconds from the user.
+total_seconds = float(input('Enter a number of seconds: '))
+
+# Get the number of hours.
+hours = total_seconds // 3600
+
+# Get the number of remaining minutes.
+minutes = (total_seconds // 60) % 60
+
+# Get the number of remaining seconds.
+seconds = total_seconds % 60
+
+# Display the results.
+print('Here is the time in hours, minutes, and seconds:')
+print('Hours:', hours)
+print('Minutes:', minutes)
+print('Seconds:', seconds)
+
+
+
+
+The terms in the formula are as follows:
+P is the present value, or the amount that you need to deposit today.
+F is the future value that you want in the account. (In this case, F is $10,000.)
+r is the annual interest rate.
+ n is the number of years that you plan to let the money sit in the account.
+ P = F / (1.0 + r)^n
+present_value = future_value / (1.0 + rate)**years
+
+# Get the desired future value.
+future_value = float(input('Enter the desired future value: '))
+
+# Get the annual interest rate.
+rate = float(input('Enter the annual interest rate: '))
+
+# Get the number of years that the money will appreciate.
+years = int(input('Enter the number of years the money will grow: '))
+
+# Calculate the amount needed to deposit.
+present_value = future_value / (1.0 + rate)**years
+
+# Display the amount needed to deposit.
+print('You will need to deposit this amount:', present_value)
+
+Breaking Long Statements into Multiple Lines
+Python allows you to break a statement into multiple lines by using the line continuation
+character, which is a backslash (\).
+
+result = var1 * 2 + var2 * 3 + \
+ var3 * 4 + var4 * 5
+ print(result)
+
+ Python also allows you to break any part of a statement that is enclosed in parentheses
+into multiple lines without using the line continuation character
+print("Monday's sales are", monday,
+ "and Tuesday's sales are", tuesday,
+ "and Wednesday's sales are", wednesday)
+
+total = (value1 + value2 +
+ value3 + value4 +
+ value5 + value6)
+
+Suppressing the print Function’s Ending Newline
+The print function normally displays a line of output. 
+print('One')
+print('Two')
+print('Three')
+
+If you do not want the print function to start a new line of output when it finishes displaying its output, you can pass the special argument end=' ' to the function,
+print('One', end=' ')
+print('Two', end=' ')
+print('Three')
+
+Specifying an Item Separator
+When multiple arguments are passed to the print function, they are automatically separated by a space when they are displayed on the screen. 
+If you do not want a space printed between the items, you can pass the argument sep=''
+to the print function
+ print('One', 'Two', 'Three', sep='')
+print('One', 'Two', 'Three', sep='*') 
+
+Escape Characters
+An escape character is a special character that is preceded with a backslash (\), appearing
+inside a string literal
+Escape Character Effect
+\n Causes output to be advanced to the next line.
+\t Causes output to skip over to the next horizontal tab position.
+\' Causes a single quote mark to be printed.
+\" Causes a double quote mark to be printed.
+\\ Causes a backslash character to be printed.
+print('Mon\tTues\tWed')
+print('Thur\tFri\tSat')
+
+print("Your assignment is to read \"Hamlet\" by tomorrow.")
+print('I\'m ready to begin.')
+
+
+Displaying Multiple Items with the + Operator
+print('Enter the amount of ' +
+'sales for each day and ' +
+'press Enter.')
+
+Formatting Numbers
+amount_due = 5000.0
+monthly_payment = amount_due / 12
+print('The monthly payment is',
+format(monthly_payment, ‘.2f’))
+
+Inserting Comma Separators
+print(format(12345.6789, ',.2f'))
+
+monthly_pay = 5000.0
+annual_pay = monthly_pay * 12
+print('Your annual pay is $',
+format(annual_pay, ',.2f'), sep='')
+
+Formatting a Floating-Point Number as a Percentage
+print(format(0.5, '%'))
+print(format(0.5, '.0%'))
+
+Formatting Integers
+print(format(123456, 'd'))
+print(format(123456, ',d'))
+
+A named constant is a name that represents a value that cannot be
+changed during the program's execution.
+
+A named constant is a name that represents a value that does not change during the program’s
+INTEREST_RATE = 0.069
+amount = balance * INTEREST_RATE
+
+
+The if statement
+if condition:
+    statement
+    statement
+
+Boolean Expressions and Relational Operators
+> Greater than
+< Less than
+>= Greater than or equal to
+<= Less than or equal to
+== Equal to
+!= Not equal
+
+Boolean expressions using relational operators
+Expression Meaning
+x > y Is x greater than y?
+x < y Is x less than y?
+x >= y Is x greater than or equal to y?
+x <= y Is x less than or equal to y?
+x == y Is x equal to y?
+x != y Is x not equal to y?
+
+if sales > 50000:
+bonus = 500.0
+commission_rate = 0.12
+print('You met your sales quota!')
+
+This program gets three test scores and displays
+their average. It congratulates the user if the
+average is a high score.
+
+# This program gets three test scores and displays
+# their average. It congratulates the user if the
+# average is a high score.
+# The HIGH_SCORE named constant holds the value that is considered a high score.
+HIGH_SCORE = 95
+
+# Get the three test scores
+test1 = int(input('Enter the score for test 1: ' ))
+test2 = int(input('Enter the score for test 2: ' ))
+test3 = int(input('Enter the score for test 3: ' ))
+
+# Calculate the average test score.
+average = (test1 + test2 + test3) / 3
+
+# Print the average.
+print('The average score is', average)
+
+# If the average is a high score, congratulate the user.
+if average >= HIGH_SCORE:
+    print('Congratulations!')
+    print('That is a great average!')
+
+
+An if-else statement will execute one block of statements if its condition
+is true, or another block if its condition is false
+
+If any employee works over 40 hours in a week, he pays them 1.5 times their regular hourly pay rate for all hours over 40. He has asked you to design a simple payroll program that calculates an employee’s
+gross pay, including any overtime wages.
+
+BASE_HOURS = 40 # Base hours per week
+OT_MULTIPLIER = 1.5 # Overtime multiplier
+
+hours = float(input('Enter the number of hours worked: '))
+ pay_rate = float(input('Enter the hourly pay rate: '))
+
+if hours > BASE_HOURS:
+# Calculate the gross pay with overtime.
+# First, get the number of overtime hours worked.
+overtime_hours = hours − BASE_HOURS
+
+# Calculate the amount of overtime pay.
+overtime_pay = overtime_hours * pay_rate * OT_MULTIPLIER
+
+# Calculate the gross pay.
+gross_pay = BASE_HOURS * pay_rate + overtime_pay
+else:
+# Calculate the gross pay without overtime.
+gross_pay = hours * pay_rate
+print('The gross pay is $', format(gross_pay, ',.2f'), sep='')
+
+Comparing Strings
+
+name1 = 'Mary'
+name2 = 'Mark'
+if name1 == name2:
+print('The names are the same.')
+else:
+print('The names are NOT the same.')
+
+# This program compares two strings.
+# Get a password from the user.
+password = input('Enter the password: ')
+# Determine whether the correct password
+# was entered.
+if password == 'prospero':
+print('Password accepted.')
+else:
+print('Sorry, that is the wrong password.')
+
+Nested Decision Structures and the
+if-elif-else Statement
+
+This program determines whether a bank customer
+ # qualifies for a loan.
+
+MIN_SALARY = 30000.0 # The minimum annual salary
+MIN_YEARS = 2 # The minimum years on the job
+
+# Get the customer's annual salary.
+salary = float(input('Enter your annual salary: '))
+
+# Get the number of years on the current job.
+years_on_job = int(input('Enter the number of' + 'years employed: '))
+
+# Determine whether the customer qualifies.
+if salary >= MIN_SALARY:
+    if years_on_job >= MIN_YEARS:
+        print('You qualify for the loan.')
+    else:
+        print('You must have been employed', 'for at least', MIN_YEARS, 'years to qualify.')
+else:
+    print('You must earn at least $', format(MIN_SALARY, ',.2f'), ' per year to qualify.', sep='')
+
+Multiple Nested Decision Structures
+
+This program gets a numeric test score from the user and displays the corresponding letter grade.
+
+# Named constants to represent the grade thresholds
+A_SCORE = 90
+B_SCORE = 80
+C_SCORE = 70
+D_SCORE = 60
+
+# Get a test score from the user.
+score = int(input('Enter your test score: '))
+# Determine the grade.
+if score >= A_SCORE:
+    print('Your grade is A.')
+else:
+    if score >= B_SCORE:
+        print('Your grade is B.')
+    else:
+        if score >= C_SCORE:
+            print('Your grade is C.')
+        else:
+            if score >= D_SCORE:
+                print('Your grade is D.')
+            else:
+                print('Your grade is F.')
+
+The if-elif-else Statement
+if score >= A_SCORE:
+    print('Your grade is A.')
+elif score >= B_SCORE:
+    print('Your grade is B.')
+elif score >= C_SCORE:
+    print('Your grade is C.')
+elif score >= D_SCORE:
+    print('Your grade is D.')
+else:
+    print('Your grade is F.')
+
+Logical operators
+Operator    Meaning
+and         The and operator connects two Boolean expressions into one compound expression.    Both subexpressions must be true for the compound expression to be true.
+or          The or operator connects two Boolean expressions into one compound expression.
+One or both subexpressions must be true for the compound expression to be true.
+It is only necessary for one of the subexpressions to be true, and it does not matter
+which.
+not         The not operator is a unary operator, meaning it works with only one operand.
+The operand must be a Boolean expression. The not operator reverses the truth
+of its operand. If it is applied to an expression that is true, the operator returns
+false. If it is applied to an expression that is false, the operator returns true. 
+
+Logical Operators
+x > y and a < b Is x greater than y AND is a less than b?
+x == y or x == z Is x equal to y OR is x equal to z?
+not (x > y) Is the expression x > y NOT true?
+
+# This program determines whether a bank customer
+# qualifies for a loan.
+MIN_SALARY = 30000.0 # The minimum annual salary
+MIN_YEARS = 2 # The minimum years on the job
+
+# Get the customer's annual salary.
+salary = float(input('Enter your annual salary: '))
+
+# Get the number of years on the current job.
+years_on_job = int(input('Enter the number of ' + 'years employed: '))
+
+# Determine whether the customer qualifies.
+if salary >= MIN_SALARY and years_on_job >= MIN_YEARS:
+    print('You qualify for the loan.')
+else:
+    print('You do not qualify for this loan.')
+
+Checking Numeric Ranges with Logical Operators
+x = int('input a number: ')
+if x >= 20 and x <= 40:
+print('The value is in the acceptable range.')
+
+Boolean Variables
+Boolean variables are most commonly used as flags. A flag is a variable that signals when some
+condition exists in the program. When the flag variable is set to False, it indicates the condition
+does not exist. When the flag variable is set to True, it means the condition does exist.
+
+if sales >= 50000.0:
+    sales_quota_met = True
+else:
+    sales_quota_met = False
+
+
+
