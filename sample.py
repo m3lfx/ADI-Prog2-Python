@@ -31,13 +31,34 @@
 
 
 # Get the item's original price.
-original_price = float(input("Enter the item's original price: "))
-# Calculate the amount of the discount.
-discount = original_price * 0.2
+# original_price = float(input("Enter the item's original price: "))
+# # Calculate the amount of the discount.
+# discount = original_price * 0.2
 
-# Calculate the sale price.
-sale_price = original_price - discount
+# # Calculate the sale price.
+# sale_price = original_price - discount
 
-# Display the sale price.
-print('The sale price is', sale_price)
+# # Display the sale price.
+# print('The sale price is', sale_price)
+
+# test1 = int(input('Enter the first test score: '))
+# test2 = int(input('Enter the second test score: '))
+# test3 = int(input('Enter the third test score: '))
+
+# # Calculate the average of the three scores
+# # and assign the result to the average variable.
+
+# average = (test1 + test2 + test3) / 0
+
+
+# # Display the average.
+# print('The average score is', average)
+
+length = float(input("enter a length "))
+float_area = length ** 2
+integer_area = int(area)
+print(area)
+print(int(area))
+floatPrice
+ 
 

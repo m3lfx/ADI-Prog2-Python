@@ -97,6 +97,7 @@ a whole number
 
 
 
+
 This program gets an item's original price and
 calculates its sale price, with a 20% discount
 # Get the item's original price.
