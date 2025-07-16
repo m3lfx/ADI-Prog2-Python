@@ -17,17 +17,27 @@
 # print(sum)
 
 
-hours = int(input('How many hours did you work? '))
-print(hours)
+# hours = int(input('How many hours did you work? '))
+# print(hours)
 
-name = input('What is your name? ')
-age = int(input('What is your age? '))
-income = float(input('What is your income? '))
+# name = input('What is your name? ')
+# age = int(input('What is your age? '))
+# income = float(input('What is your income? '))
 
-print('Here is the data you entered:')
-print('Name:', name)
-print('Age:', age)
-print('Income:', income)
+# print('Here is the data you entered:')
+# print('Name:', name)
+# print('Age:', age)
+# print('Income:', income)
 
 
+# Get the item's original price.
+original_price = float(input("Enter the item's original price: "))
+# Calculate the amount of the discount.
+discount = original_price * 0.2
+
+# Calculate the sale price.
+sale_price = original_price - discount
+
+# Display the sale price.
+print('The sale price is', sale_price)
 
