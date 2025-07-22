@@ -1,0 +1,1094 @@
+object oriented programming (OOP) is centered on creating objects. An object is a software
+entity that contains both data and procedures. The data contained in an object is known as
+the object’s data attributes. An object’s data attributes are simply variables that reference
+data. The procedures that an object performs are known as methods. An object’s methods
+are functions that perform operations on the object’s data attributes. The object is, conceptually,
+a self-contained unit that consists of data attributes and methods that operate
+on the data attributes.
+
+OOP addresses the problem of code and data separation through encapsulation and data
+hiding. Encapsulation refers to the combining of data and code into a single object. Data
+hiding refers to an object’s ability to hide its data attributes from code that is outside the
+object. Only the object’s methods may directly access and make changes to the object’s data
+attributes.
+
+An object typically hides its data, but allows outside code to access its methods
+When an object’s data attributes are hidden from outside code, and access to the data attributes
+is restricted to the object’s methods, the data attributes are protected from accidental
+corruption. In addition, the code outside the object does not need to know about the format
+or internal structure of the object’s data. The code only needs to interact with the object’s
+methods. When a programmer changes the structure of an object’s internal data attributes,
+he or she also modifies the object’s methods so they may properly operate on the data. The
+way in which outside code interacts with the methods, however, does not change.
+
+Object Reusability
+In addition to solving the problems of code and data separation, the use of OOP has also
+been encouraged by the trend of object reusability. An object is not a stand-alone program,
+but is used by programs that need its services
+
+An Everyday Example of an Object
+Imagine that your alarm clock is actually a software object. If it were, it would have the
+following data attributes:
+• current_second (a value in the range of 0–59)
+• current_minute (a value in the range of 0–59)
+• current_hour (a value in the range of 1–12)
+• alarm_time (a valid hour and minute)
+• alarm_is_set (True or False)
+
+As you can see, the data attributes are merely values that define the state in which the
+alarm clock is currently. You, the user of the alarm clock object, cannot directly manipulate
+these data attributes because they are private. To change a data attribute’s value, you
+must use one of the object’s methods. The following are some of the alarm clock object’s
+methods:
+• set_time
+• set_alarm_time
+• set_alarm_on
+• set_alarm_off
+
+In addition, another button allows you to execute the set_alarm_on and set_alarm_off
+methods. Notice all of these methods can be activated by you, who are outside the alarm
+clock. Methods that can be accessed by entities outside the object are known as public
+methods.
+The alarm clock also has private methods, which are part of the object’s private, internal
+workings. External entities (such as you, the user of the alarm clock) do not have direct
+access to the alarm clock’s private methods. The object is designed to execute these methods
+automatically and hide the details from you. The following are the alarm clock object’s
+private methods:
+• increment_current_second
+• increment_current_minute
+• increment_current_hour
+• sound_alarm
+
+Classes
+
+A class is code that specifies the data attributes and methods for a
+particular type of object.
+
+Before an object can be created, it must be designed by a programmer. The programmer determines the data attributes and
+methods that are necessary, then creates a class. A class is code that specifies the data attributes and methods of a particular type of object. Think of a class as a “blueprint” from which objects may be created. It serves a similar purpose as the blueprint for a house.
+The blueprint itself is not a house, but is a detailed description of a house. When we use the blueprint to build an actual house, we could say we are building an instance of the house described by the blueprint.
+
+Class Definitions
+
+To create a class, you write a class definition. A class definition is a set of statements that
+define a class’s methods and data attributes.
+
+import random
+
+# The Coin class simulates a coin that can be flipped.
+
+class Coin:
+
+    # The _ _init_ _ method initializes the
+    # sideup data attribute with 'Heads'.
+
+    def __init__(self):
+        self.sideup = 'Heads'
+
+    # The toss method generates a random number
+    # in the range of 0 through 1. If the number
+    # is 0, then sideup is set to 'Heads'.
+    # Otherwise, sideup is set to 'Tails'.
+
+    def toss(self):
+        if random.randint(0, 1) == 0:
+            self.sideup = 'Heads'
+        else:
+            self.sideup = 'Tails'
+
+    # The get_sideup method returns the value
+    # referenced by sideup.
+
+    def get_sideup(self):
+        return self.sideup
+
+the beginning of the class definition. It begins
+with the keyword class, followed by the class name, which is Coin, followed by a colon.
+The same rules that apply to variable names also apply to class names. However, notice
+that we started the class name, Coin, with an uppercase letter. This is not a requirement,
+but it is a widely used convention among programmers. This helps to easily distinguish class
+names from variable names when reading code.
+
+The Coin class has three methods:
+• The __init__ method 
+• The toss method 
+• The get_sideup method 
+
+The self parameteris required in every method of a class. Recall from our earlier discussion on object-oriented programming that a method operates on a specific object’s data
+attributes. When a method executes, it must have a way of knowing which object’s data
+attributes it is supposed to operate on. That’s where the self parameter comes in. When
+a method is called, Python makes the self parameter reference the specific object that the
+method is supposed to operate on
+
+def __init__(self):
+ self.sideup = 'Heads'
+Most Python classes have a special method named _ _init_ _, which is automatically
+executed when an instance of the class is created in memory. The _ _init_ _ method is
+commonly known as an initializer method because it initializes the object’s data attributes.
+(The name of the method starts with two underscore characters, followed by the word
+init, followed by two more underscore characters.)
+
+Immediately after an object is created in memory, the __init__ method executes, and
+the self parameter is automatically assigned the object that was just created. Inside the
+method, the statement executes:
+self.sideup = 'Heads'
+This statement assigns the string 'Heads' to the sideup data attribute belonging to
+the object that was just created. As a result of this __init__ method, each object we
+create from the Coin class will initially have a sideup attribute that is set to 'Heads'.
+
+def toss(self):
+ if random.randint(0, 1) == 0:
+    self.sideup = 'Heads'
+ else:
+    self.sideup = 'Tails'
+This method also has the required self parameter variable. When the toss method is
+called, self will automatically reference the object on which the method is to operate.
+The toss method simulates the tossing of the coin. When the method is called, the if
+statement calls the random.randint function to get a random integer in the
+range of 0 through 1. If the number is 0, then the statement assigns 'Heads'
+to self.sideup. Otherwise, the statement assigns 'Tails' to self.sideup.
+
+
+# The main function.
+def main():
+    # Create an object from the Coin class.
+    my_coin = Coin()
+
+    # Display the side of the coin that is facing up.
+    print('This side is up:', my_coin.get_sideup())
+
+    # Toss the coin.
+    print('I am tossing the coin ...')
+    my_coin.toss()
+
+    # Display the side of the coin that is facing up.
+    print('This side is up:', my_coin.get_sideup())
+
+# Call the main function.
+main()
+
+Hiding Attributes
+Earlier in this chapter, we mentioned that an object’s data attributes should be private,
+so that only the object’s methods can directly access them. This protects the object’s data
+attributes from accidental corruption. However, in the Coin class that was shown in the
+previous example, the sideup attribute is not private. It can be directly accessed by statements that are not in a Coin class method.
+
+ # The main function.
+def main():
+    # Create an object from the Coin class.
+    my_coin = Coin()
+
+    # Display the side of the coin that is facing up.
+    print('This side is up:', my_coin.get_sideup())
+
+    # Toss the coin.
+    print('I am tossing the coin ...')
+    my_coin.toss()
+
+    # But now I'm going to cheat! I'm going to
+    # directly change the value of the object's
+    # sideup attribute to 'Heads'.
+    my_coin.sideup = 'Heads'
+
+    # Display the side of the coin that is facing up.
+    print('This side is up:', my_coin.get_sideup())
+# Call the main function.
+main()
+
+If we truly want to simulate a coin that is being tossed, then we don’t want code outside the
+class to be able to change the result of the toss method. To prevent this from happening,
+we need to make the sideup attribute private. In Python, you can hide an attribute by starting its name with two underscore characters.
+
+class Coin:
+
+    # The _ _init_ _ method initializes the
+    # sideup data attribute with 'Heads'.
+
+    def __init__(self):
+        self.__sideup = 'Heads'
+
+    # The toss method generates a random number
+    # in the range of 0 through 1. If the number
+    # is 0, then sideup is set to 'Heads'.
+    # Otherwise, sideup is set to 'Tails'.
+
+    def toss(self):
+        if random.randint(0, 1) == 0:
+            self.__sideup = 'Heads'
+        else:
+            self.__sideup = 'Tails'
+
+    # The get_sideup method returns the value
+    # referenced by sideup.
+
+    def get_sideup(self):
+        return self.__sideup
+
+Working with Instances
+
+Each instance of a class has its own set of data attributes.
+
+When a method uses the self parameter to create an attribute, the attribute belongs to the
+specific object that self references. We call these attributes instance attributes because they
+belong to a specific instance of the class.
+It is possible to create many instances of the same class in a program. Each instance will
+then have its own set of attributes
+
+ # This program imports the simulation module and
+ # creates three instances of the Coin class.
+ 
+ import coin
+ 
+ def main():
+ # Create three objects from the Coin class.
+ coin1 = coin.Coin()
+ coin2 = coin.Coin()
+ coin3 = coin.Coin()
+
+# Display the side of each coin that is facing up.
+print('I have three coins with these sides up:')
+print(coin1.get_sideup())
+print(coin2.get_sideup())
+print(coin3.get_sideup())
+print()
+
+# Toss the coin.
+print('I am tossing all three coins ...')
+print()
+coin1.toss()
+coin2.toss()
+coin3.toss()
+
+# Display the side of each coin that is facing up.
+print('Now here are the sides that are up:')
+print(coin1.get_sideup())
+print(coin2.get_sideup())
+print(coin3.get_sideup())
+print()
+
+# Call the main function.
+main()
+
+Creating the CellPhone Class
+Wireless Solutions, Inc. is a business that sells cell phones and wireless service. You are a
+programmer in the company’s IT department, and your team is designing a program to
+manage all of the cell phones that are in inventory. You have been asked to design a class
+that represents a cell phone. The data that should be kept as attributes in the class are as
+follows:
+•	 The name of the phone’s manufacturer will be assigned to the _ _manufact attribute.
+•	 The phone’s model number will be assigned to the _ _model attribute.
+•	 The phone’s retail price will be assigned to the _ _retail_price attribute.
+The class will also have the following methods:
+•	 An _ _init_ _ method that accepts arguments for the manufacturer, model number,
+and retail price.
+•	 A set_manufact method that accepts an argument for the manufacturer. This method
+will allow us to change the value of the _ _manufact attribute after the object has
+been created, if necessary.
+•	 A set_model method that accepts an argument for the model. This method will allow
+us to change the value of the _ _model attribute after the object has been created, if
+necessary.
+•	 A set_retail_price method that accepts an argument for the retail price. This
+method will allow us to change the value of the _ _retail_price attribute after the
+object has been created, if necessary.
+•	 A get_manufact method that returns the phone’s manufacturer.
+•	 A get_model method that returns the phone’s model number.
+•	 A get_retail_price method that returns the phone’s retail price.
+
+# The CellPhone class holds data about a cell phone.
+
+class CellPhone:
+
+    # The _ _init_ _ method initializes the attributes.
+
+    def __init__(self, manufact, model, price):
+        self.__manufact = manufact
+        self.__model = model
+        self.__retail_price = price
+    
+    # The set_manufact method accepts an argument for the phone's manufacturer.
+    
+    def set_manufact(self, manufact):
+        self.__manufact = manufact
+
+        # The set_model method accepts an argument for
+    # the phone's model number.
+    
+    def set_model(self, model):
+        self.__model = model
+    
+    # The set_retail_price method accepts an argument
+    # for the phone's retail price.
+    
+    def set_retail_price(self, price):
+        self.__retail_price = price
+    
+    # The get_manufact method returns the phone's manufacturer.
+    
+    def get_manufact(self):
+        return self.__manufact
+    
+    # The get_model method returns the  phone's model number.
+    
+    def get_model(self):
+        return self.__model
+    
+    # The get_retail_price method returns the phone's retail price.
+    
+    def get_retail_price(self):
+        return self.__retail_price
+
+# This program tests the CellPhone class.
+
+import cellphone
+
+def main():
+    # Get the phone data.
+    man = input('Enter the manufacturer: ')
+    mod = input('Enter the model number: ')
+    retail = float(input('Enter the retail price: '))
+
+    # Create an instance of the CellPhone class.
+    phone = cellphone.CellPhone(man, mod, retail)
+
+    # Display the data that was entered.
+    print('Here is the data that you entered:')
+    print('Manufacturer:', phone.get_manufact())
+    print('Model Number:', phone.get_model())
+    print('Retail Price: $', format(phone.get_retail_price(), ',.2f'), sep='')
+
+# Call the main function.
+main()
+
+
+Accessor and Mutator Methods
+
+As mentioned earlier, it is a common practice to make all of a class’s data attributes private,
+and to provide public methods for accessing and changing those attributes. This ensures
+that the object owning those attributes is in control of all the changes being made to them.
+A method that returns a value from a class’s attribute but does not change it is known as an
+accessor method. Accessor methods provide a safe way for code outside the class to retrieve
+the values of attributes, without exposing the attributes in a way that they could be changed
+by the code outside the method.
+ In the CellPhone class the get_manufact, get_model, and get_retail_price methods are accessor methods.
+
+ A method that stores a value in a data attribute or changes the value of a data attribute
+in some other way is known as a mutator method. Mutator methods can control the way
+that a class’s data attributes are modified. When code outside the class needs to change
+the value of an object’s data attribute, it typically calls a mutator and passes the new
+value as an argument. If necessary, the mutator can validate the value before it assigns it to
+the data attribute. the set_manufact, set_model, and set_retail_price methods are mutator methods.
+
+Storing Objects in a List
+This program gets the data for five phones from the user, creates five CellPhone objects holding that data, and stores those objects in a list. It then iterates over the list displaying the attributes of each object.
+
+# This program creates five CellPhone objects and stores them in a list.
+
+import cellphone
+
+def main():
+    # Get a list of CellPhone objects.
+    phones = make_list()
+
+    # Display the data in the list.
+    print('Here is the data you entered:')
+    display_list(phones)
+
+    # The make_list function gets data from the user for five phones. The function returns a list
+    # of CellPhone objects containing the data.
+
+def make_list():
+    # Create an empty list.
+    phone_list = []
+
+    # Add five CellPhone objects to the list.
+    print('Enter data for five phones.')
+    for count in range(1, 6):
+        # Get the phone data.
+        print('Phone number ' + str(count) + ':')
+        man = input('Enter the manufacturer: ')
+        mod = input('Enter the model number: ')
+        retail = float(input('Enter the retail price: '))
+        print()
+
+    # Create a new CellPhone object in memory and assign it to the phone variable.
+        phone = cellphone.CellPhone(man, mod, retail)
+
+        # Add the object to the list.
+        phone_list.append(phone)
+        # Return the list.
+    return phone_list
+
+# The display_list function accepts a list containing CellPhone objects as an argument and displays the
+# data stored in each object.
+
+def display_list(phone_list):
+    for item in phone_list:
+        print(item.get_manufact())
+        print(item.get_model())
+        print(item.get_retail_price())
+        print()
+
+# Call the main function.
+main()
+
+Passing Objects as Arguments
+When you are developing applications that work with objects, you often need to write
+functions and methods that accept objects as arguments
+
+the following code shows a function named show_coin_status that accepts a Coin object as an argument:
+def show_coin_status(coin_obj):
+    print('This side of the coin is up:', coin_obj.get_sideup())
+
+When you pass a object as an argument, the thing that is passed into the parameter variable
+is a reference to the object. As a result, the function or method that receives the object as an
+argument has access to the actual object. For example, look at the following flip method:
+def flip(coin_obj):
+coin_obj.toss()
+This method accepts a Coin object as an argument, and it calls the object’s toss method.
+
+# This program passes a Coin object as an argument to a function.
+import coin
+
+# main function
+def main():
+    # Create a Coin object.
+    my_coin = coin.Coin()
+
+    # This will display 'Heads'.
+    print(my_coin.get_sideup())
+
+    # Pass the object to the flip function.
+    flip(my_coin)
+
+    # This might display 'Heads', or it might
+    # display 'Tails'.
+    print(my_coin.get_sideup())
+
+# The flip function flips a coin.
+def flip(coin_obj):
+    coin_obj.toss()
+
+# Call the main function.
+main()
+
+Pickling Your Own Objects
+the pickle module provides functions for serializing objects.
+Serializing an object means converting it to a stream of bytes that can be saved to a file for
+later retrieval. The pickle module’s dump function serializes (pickles) an object and writes it
+to a file, and the load function retrieves an object from a file and deserializes (unpickles) it.
+
+pickle_cellphone.py
+# This program pickles CellPhone objects.
+import pickle
+import cellphone
+
+# Constant for the filename.
+FILENAME = 'cellphones.dat'
+
+def main():
+    # Initialize a variable to control the loop.
+    again = 'y'
+    
+    # Open a file.
+    output_file = open(FILENAME, 'wb')
+    
+    #  Get data from the user.
+    while again.lower() == 'y':
+        # Get cell phone data.
+        man = input('Enter the manufacturer: ')
+        mod = input('Enter the model number: ')
+        retail = float(input('Enter the retail price: '))
+    
+        # Create a CellPhone object.
+        phone = cellphone.CellPhone(man, mod, retail)
+
+        # Pickle the object and write it to the file.
+        pickle.dump(phone, output_file)
+    
+        # Get more cell phone data?
+        again = input('Enter more phone data? (y/n): ')
+    
+    # Close the file.
+    output_file.close()
+    print('The data was written to', FILENAME)
+
+# Call the main function.
+main()
+
+
+# This program unpickles CellPhone objects.
+import pickle
+import cellphone
+
+# Constant for the filename.
+FILENAME = 'cellphones.dat'
+def main():
+    end_of_file = False # To indicate end of file
+
+    # Open the file.
+    input_file = open(FILENAME, 'rb')
+
+    # Read to the end of the file.
+    while not end_of_file:
+        try:
+        # Unpickle the next object.
+            phone = pickle.load(input_file)
+
+            # Display the cell phone data.
+            display_data(phone)
+        except EOFError:
+            # Set the flag to indicate the end
+            # of the file has been reached.
+            end_of_file = True
+    # Close the file.
+    input_file.close()
+
+# The display_data function displays the data
+# from the CellPhone object passed as an argument.
+def display_data(phone):
+    print('Manufacturer:', phone.get_manufact())
+    print('Model Number:', phone.get_model())
+    print('Retail Price: $', format(phone.get_retail_price(), ',.2f'), sep='')
+    print()
+
+# Call the main function.
+main()
+
+
+Storing Objects in a Dictionary
+dictionaries are objects that store elements as key-value pairs.
+Each element in a dictionary has a key and a value. If you want to retrieve a specific value
+from the dictionary, you do so by specifying its key. Dictionaries are also useful for storing objects that you create from your own classes.
+
+Suppose you want to create a program that keeps contact information,
+such as names, phone numbers, and email addresses. You could start by writing a
+class such as the Contact class. An instance of the Contact class
+keeps the following data:
+• A person’s name is stored in the _ _name attribute.
+• A person’s phone number is stored in the __phone attribute.
+• A person’s email address is stored in the __email attribute.
+
+The class has the following methods:
+• An __init__ method that accepts arguments for a person’s name, phone number,
+and email address
+• A set_name method that sets the __name attribute
+• A set_phone method that sets the __phone attribute
+• A set_email method that sets the __email attribute
+• A get_name method that returns the __name attribute
+• A get_phone method that returns the __phone attribute
+• A get_email method that returns the __email attribute
+• A __str__ method that returns the object’s state as a string
+
+#contact.py
+
+# The Contact class holds contact information.
+
+class Contact:
+    # The __init__ method initializes the attributes.
+    def __init__(self, name, phone, email):
+        self.__name = name
+        self.__phone = phone
+        self.__email = email
+
+    # The set_name method sets the name attribute.
+    def set_name(self, name):
+        self.__name = name
+
+    # The set_phone method sets the phone attribute.
+    def set_phone(self, phone):
+        self.__phone = phone
+
+    # The set_email method sets the email attribute.
+    def set_email(self, email):
+        self.__email = email
+
+    # The get_name method returns the name attribute.
+    def get_name(self):
+        return self.__name
+
+    # The get_phone method returns the phone attribute.
+    def get_phone(self):
+        return self.__phone
+
+    # The get_email method returns the email attribute.
+    def get_email(self):
+        return self.__email
+
+    # The __str__ method returns the object's state as a string.
+    def __str__(self):
+        return "Name: " + self.__name + \
+        "\nPhone: " + self.__phone + \
+        "\nEmail: " + self.__email
+
+you could write a program that keeps Contact objects in a dictionary. Each time
+the program creates a Contact object holding a specific person’s data, that object would
+be stored as a value in the dictionary, using the person’s name as the key. Then, any time
+you need to retrieve a specific person’s data, you would use that person’s name as a key to
+retrieve the Contact object from the dictionary.
+
+The program displays a menu that allows the user to perform any of the following operations:
+• Look up a contact in the dictionary
+• Add a new contact to the dictionary
+• Change an existing contact in the dictionary
+• Delete a contact from the dictionary
+• Quit the program
+
+Additionally, the program automatically pickles the dictionary and saves it to a file when
+the user quits the program. When the program starts, it automatically retrieves and unpickles
+the dictionary from the file. (Recall from Chapter 10 that pickling an object saves it to a
+file, and unpickling an object retrieves it from a file.) If the file does not exist, the program
+starts with an empty dictionary.
+
+The program is divided into eight functions: main, load_contacts, get_menu_choice,
+look_up, add, change, delete, and save_contacts. Rather than presenting the entire
+program at once, let’s first examine the beginning part, which includes the import statements,
+global constants, and the main function.
+
+contact_manager.py: main function
+# This program manages contacts.
+import contact
+import pickle
+
+# Global constants for menu choices
+
+LOOK_UP = 1
+ADD = 2
+CHANGE = 3
+DELETE = 4
+QUIT = 6
+LIST = 5
+
+# Global constant for the filename
+FILENAME = 'contacts.dat'
+
+# main function
+def main():
+    # Load the existing contact dictionary and assign it to mycontacts.
+    mycontacts = load_contacts()
+
+    # Initialize a variable for the user's choice.
+    choice = 0
+    # Process menu selections until the user wants to quit the program.
+    while choice != QUIT:
+        # Get the user's menu choice.
+        choice = get_menu_choice()
+
+        #  Process the choice.
+        print(choice)
+        if choice == LOOK_UP:
+            look_up(mycontacts)
+        elif choice == ADD:
+            add(mycontacts)
+        elif choice == CHANGE:
+            change(mycontacts)
+        elif choice == LIST:
+            list_contacts(mycontacts)
+        elif choice == DELETE:
+            delete(mycontacts)
+
+    # Save the mycontacts dictionary to a file.
+    save_contacts(mycontacts)
+
+def load_contacts():
+    try:
+        # Open the contacts.dat file.
+        input_file = open(FILENAME, 'rb')
+
+        # Unpickle the dictionary.
+        contact_dct = pickle.load(input_file)
+
+        # Close the phone_inventory.dat file.
+        input_file.close()
+    except IOError:
+        # Could not open the file, so create # an empty dictionary.
+        contact_dct = {}
+
+    # Return the dictionary.
+    return contact_dct
+
+# The get_menu_choice function displays the menu and gets a validated choice from the user.
+def get_menu_choice():
+    print()
+    print('Menu')
+    print('---------------------------')
+    print('1. Look up a contact')
+    print('2. Add a new contact')
+    print('3. Change an existing contact')
+    print('4. Delete a contact')
+    print('5. Contact List')
+    print('6. Quit the program')
+    print()
+
+    # Get the user's choice.
+    choice = int(input('Enter your choice: '))
+    
+
+    # Validate the choice.
+   
+    while choice < LOOK_UP or  choice > QUIT:
+        choice = int(input('Enter a valid choice: '))
+
+    # return the user's choice.
+    return choice
+
+# The look_up function looks up an item in the specified dictionary.
+def look_up(mycontacts):
+    # Get a name to look up.
+    name = input('Enter a name: ')
+
+    # Look it up in the dictionary.
+    print(mycontacts.get(name, 'That name is not found.'))
+
+# The add function adds a new entry into the specified dictionary.
+def add(mycontacts):
+    # Get the contact info.
+    name = input('Name: ')
+    phone = input('Phone: ')
+    email = input('Email: ')
+
+    # Create a Contact object named entry.
+    entry = contact.Contact(name, phone, email)
+
+    # If the name does not exist in the dictionary, add it as a key with the entry object as the associated value.
+    if name not in mycontacts:
+        mycontacts[name] = entry
+        print('The entry has been added.')
+    else:
+        print('That name already exists.')
+
+# The change function changes an existing entry in the specified dictionary.
+def change(mycontacts):
+    # Get a name to look up.
+    name = input('Enter a name: ')
+
+    if name in mycontacts:
+        # Get a new phone number.
+        phone = input('Enter the new phone number: ')
+
+        # Get a new email address.
+        email = input('Enter the new email address: ')
+
+        # Create a contact object named entry.
+        entry = contact.Contact(name, phone, email)
+
+        # Update the entry.
+        mycontacts[name] = entry
+        print('Information updated.')
+    else:
+        print('That name is not found.')
+
+# The delete function deletes an entry from the specified dictionary.
+def delete(mycontacts):
+    # Get a name to look up.
+    name = input('Enter a name: ')
+
+    # If the name is found, delete the entry.
+    if name in mycontacts:
+        del mycontacts[name]
+        print('Entry deleted.')
+    else:
+        print('That name is not found.')
+
+# The save_contacts funtion pickles the specified object and saves it to the contacts file.
+def save_contacts(mycontacts):
+    # Open the file for writing.
+    output_file = open(FILENAME, 'wb')
+
+    # Pickle the dictionary and save it.
+    pickle.dump(mycontacts, output_file)
+
+    # Close the file.
+    output_file.close()
+
+
+def list_contacts(mycontacts):
+    for key, value in mycontacts.items():
+        print(f"{key}: {value}")
+        print()
+   
+
+main()
+
+INheritance
+Inheritance allows a new class to extend an existing class. The new class
+inherits the members of the class it extends.
+In the real world, you can find many objects that are specialized versions of other more
+general objects. For example, the term “insect” describes a general type of creature with
+various characteristics. Because grasshoppers and bumblebees are insects, they have all
+the general characteristics of an insect. In addition, they have special characteristics of
+their own. For example, the grasshopper has its jumping ability, and the bumblebee has
+its stinger. Grasshoppers and bumblebees are specialized versions of an insect
+
+Inheritance and the “Is a” Relationship
+When one object is a specialized version of another object, there is an “is a” relationship
+between them. For example, a grasshopper is an insect. Here are a few other examples of
+the “is a” relationship:
+• A poodle is a dog.
+• A car is a vehicle.
+• A flower is a plant.
+• A rectangle is a shape.
+• A football player is an athlete.
+
+When an “is a” relationship exists between objects, it means that the specialized object has
+all of the characteristics of the general object, plus additional characteristics that make it
+special. In object-oriented programming, inheritance is used to create an “is a” relationship
+among classes. This allows you to extend the capabilities of a class by creating another class
+that is a specialized version of it.
+Inheritance involves a superclass and a subclass. The superclass is the general class and the
+subclass is the specialized class. You can think of the subclass as an extended version of the
+superclass. The subclass inherits attributes and methods from the superclass without any
+of them having to be rewritten. Furthermore, new attributes and methods may be added to
+the subclass, and that is what makes it a specialized version of the superclass.
+
+Suppose we are developing a program that a car dealership can use to manage its inventory of used cars. The dealership’s
+inventory includes three types of automobiles: cars, pickup trucks, and sport-utility
+vehicles (SUVs). Regardless of the type, the dealership keeps the following data about each
+automobile:
+• Make
+• Year model
+• Mileage
+• Price
+Each type of vehicle that is kept in inventory has these general characteristics, plus its own
+specialized characteristics. For cars, the dealership keeps the following additional data:
+• Number of doors (2 or 4)
+For pickup trucks, the dealership keeps the following additional data:
+• Drive type (two-wheel drive or four-wheel drive)
+And for SUVs, the dealership keeps the following additional data:
+• Passenger capacity
+
+This would be an inefficient approach, however, because all three of the classes have a large
+number of common data attributes. As a result, the classes would contain a lot of duplicated
+code. In addition, if we discover later that we need to add more common attributes,
+we would have to modify all three classes.
+A better approach would be to write an Automobile superclass to hold all the general data
+about an automobile, then write subclasses for each specific type of automobile.
+
+vehicles.py
+# The Automobile class holds general data
+2 # about an automobile in inventory.
+
+class Automobile:
+# The __init__method accepts arguments for the make, model, mileage, and price. It initializes
+# the data attributes with these values.
+
+    def __init__(self, make, model, mileage, price):
+        self.__make = make
+        self.__model = model
+        self._ _mileage = mileage
+        self._ _price = price
+
+        # The following methods are mutators for the
+        # class's data attributes.
+
+    def set_make(self, make):
+        self.__make = make
+
+    def set_model(self, model):
+        self.__model = model
+
+    def set_mileage(self, mileage):
+        self.__mileage = mileage
+
+    def set_price(self, price):
+        self.__price = price
+
+    # The following methods are the accessors for the class's data attributes.
+
+    def get_make(self):
+        return self.__make
+
+    def get_model(self):
+        return self.__model
+
+    def get_mileage(self):
+        return self.__mileage
+
+    def get_price(self):
+        return self.__price
+
+    # The Car class represents a car. It is a subclass of the Automobile class.
+
+    class Car(Automobile):
+        # The __init__ method accepts arguments for the car's make, model, mileage, price, and doors.
+
+        def __init__(self, make, model, mileage, price, doors):
+            # Call the superclass's _ _init_ _ method and pass
+            # the required arguments. Note that we also have
+            # to pass self as an argument.
+            Automobile.__init__(self, make, model, mileage, price)
+
+            # Initialize the _ _doors attribute.
+            self.__doors = doors
+
+        # The set_doors method is the mutator for the  __doors attribute.
+
+        def set_doors(self, doors):
+            self.__doors = doors
+
+        # The get_doors method is the accessor for the __doors attribute.
+
+        def get_doors(self):
+            return self.__doors
+
+# The Automobile class holds general data
+ # about an automobile in inventory.
+
+class Automobile:
+    # The _ _init_ _method accepts arguments for the make, model, mileage, and price. It initializes
+    # the data attributes with these values.
+
+    def __init__(self, make, model, mileage, price):
+        self.__make = make
+        self.__model = model
+        self.__mileage = mileage
+        self.__price = price
+
+        # The following methods are mutators for the
+        # class's data attributes.
+
+    def set_make(self, make):
+        self.__make = make
+
+    def set_model(self, model):
+        self.__model = model
+
+    def set_mileage(self, mileage):
+        self.__mileage = mileage
+
+    def set_price(self, price):
+        self.__price = price
+
+    # The following methods are the accessors for the class's data attributes.
+
+    def get_make(self):
+        return self.__make
+
+    def get_model(self):
+        return self.__model
+
+    def get_mileage(self):
+        return self.__mileage
+
+    def get_price(self):
+        return self.__price
+
+    # The Car class represents a car. It is a subclass of the Automobile class.
+
+class Car(Automobile):
+    # The __init__ method accepts arguments for the car's make, model, mileage, price, and doors.
+
+    def __init__(self, make, model, mileage, price, doors):
+        # Call the superclass's _ _init_ _ method and pass
+        # the required arguments. Note that we also have
+        # to pass self as an argument.
+        Automobile.__init__(self, make, model, mileage, price)
+
+        # Initialize the _ _doors attribute.
+        self.__doors = doors
+
+    # The set_doors method is the mutator for the  __doors attribute.
+
+    def set_doors(self, doors):
+        self.__doors = doors
+
+    # The get_doors method is the accessor for the __doors attribute.
+
+    def get_doors(self):
+        return self.__doors
+    
+# The Truck class represents a pickup truck. It is a subclass of the Automobile class.
+
+class Truck(Automobile):
+    # The __init__ method accepts arguments for the Truck's make, model, mileage, price, and drive type.
+
+    def __init__(self, make, model, mileage, price, drive_type):
+    # Call the superclass's _ _init_ _ method and pass
+    # the required arguments. Note that we also have to pass self as an argument.
+        Automobile.__init__(self, make, model, mileage, price)
+
+        # Initialize the _ _drive_type attribute.
+        self.__drive_type = drive_type
+
+    #  The set_drive_type method is the mutator for the __drive_type attribute.
+
+    def set_drive_type(self, drive_type):
+        self.__drive = drive_type
+
+    # The get_drive_type method is the accessor for the __drive_type attribute.
+
+    def get_drive_type(self):
+        return self.__drive_type
+    
+# The SUV class represents a sport utility vehicle. It is a subclass of the Automobile class.
+
+class SUV(Automobile):
+    # The __init__ method accepts arguments for the SUV's make, model, mileage, price, and passenger capacity.
+
+    def __init__(self, make, model, mileage, price, pass_cap):
+        # Call the superclass's _ _init_ _ method and pass
+        # the required arguments. Note that we also have to pass self as an argument.
+        Automobile.__init__(self, make, model, mileage, price)
+
+        # Initialize the _ _pass_cap attribute.
+        self.__pass_cap = pass_cap
+
+    # The set_pass_cap method is the mutator for the  __pass_cap attribute.
+
+    def set_pass_cap(self, pass_cap):
+        self.__pass_cap = pass_cap
+
+    # The get_pass_cap method is the accessor for the __pass_cap attribute.
+
+    def get_pass_cap(self):
+        return self.__pass_cap
+
+car_truck_suv_demo.py
+# This program creates a Car object, a Truck object,
+2 # and an SUV object.
+
+import vehicles
+
+def main():
+    # Create a Car object for a used 2001 BMW with 70,000 miles, priced at $15,000, with 4 doors.
+    car = vehicles.Car('BMW', 2001, 70000, 15000.0, 4)
+
+    # Create a Truck object for a used 2002
+    # Toyota pickup with 40,000 miles, priced
+    # at $12,000, with 4-wheel drive.
+    truck = vehicles.Truck('Toyota', 2002, 40000, 12000.0, '4WD')
+
+    # Create an SUV object for a used 2000 Volvo with 30,000 miles, priced
+    # at $18,500, with 5 passenger capacity.
+    suv = vehicles.SUV('Volvo', 2000, 30000, 18500.0, 5)
+
+    print('USED CAR INVENTORY')
+    print('===================')
+
+    # Display the car's data.
+    print('The following car is in inventory:')
+    print('Make:', car.get_make())
+    print('Model:', car.get_model())
+    print('Mileage:', car.get_mileage())
+    print('Price:', car.get_price())
+    print('Number of doors:', car.get_doors())
+    print()
+
+    # Display the truck's data.
+    print('The following pickup truck is in inventory.')
+    print('Make:', truck.get_make())
+    print('Model:', truck.get_model())
+    print('Mileage:', truck.get_mileage())
+    print('Price:', truck.get_price())
+    print('Drive type:', truck.get_drive_type())
+    print()
+
+    # Display the SUV's data.
+    print('The following SUV is in inventory.')
+    print('Make:', suv.get_make())
+    print('Model:', suv.get_model())
+    print('Mileage:', suv.get_mileage())
+    print('Price:', suv.get_price())
+    print('Passenger Capacity:', suv.get_pass_cap())
+
+# Call the main function.
+main()

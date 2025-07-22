@@ -1,0 +1,976 @@
+Introduction to Lists
+A list is an object that contains multiple data items. Lists are mutable,
+which means that their contents can be changed during a program’s
+execution. Lists are dynamic data structures, meaning that items may be
+added to them or removed from them. You can use indexing, slicing, and
+various methods to work with lists in a program.
+
+even_numbers = [2, 4, 6, 8, 10]
+names = ['Molly', 'Steven', 'Will', 'Alicia', 'Adriana']
+info = ['Alicia', 27, 1550.87]
+
+numbers = [5, 10, 15, 20]
+print(numbers)
+
+numbers = list(range(5))
+
+The repetition operator makes
+multiple copies of a list and joins them all together. Here is the general format:
+list * n
+
+numbers = [0] * 5
+print(numbers)
+
+Iterating over a List with the for Loop
+
+numbers = [99, 100, 101, 102]
+for n in numbers:
+print(n)
+
+Indexing
+Another way that you can access the individual elements in a list is with an index. Each
+element in a list has an index that specifies its position in the list. Indexing starts at 0, so the
+index of the first element is 0, the index of the second element is 1, and so forth. The index
+of the last element in a list is 1 less than the number of elements in the list
+
+my_list = [10, 20, 30, 40]
+print(my_list[0], my_list[1], my_list[2], my_list[3])
+
+The len Function
+Python has a built-in function named len that returns the length of a sequence, such as a
+list.
+
+my_list = [10, 20, 30, 40]
+size = len(my_list)
+print(size)
+
+Lists Are Mutable
+Lists in Python are mutable, which means their elements can be changed
+numbers = [1, 2, 3, 4, 5]
+print(numbers)
+numbers[0] = 99
+print(numbers)
+
+Concatenating Lists
+To concatenate means to join two things together. You can use the + operator to concatenate
+two lists. 
+list1 = [1, 2, 3, 4]
+list2 = [5, 6, 7, 8]
+list3 = list1 + list2
+
+girl_names = ['Joanne', 'Karen', 'Lori']
+boy_names = ['Chris', 'Jerry', 'Will']
+all_names = girl_names + boy_names
+print(all_names)
+
+List Slicing
+A slicing expression selects a range of elements from a sequence
+slice is a span of items that are taken from a sequence. When you take a slice from a list,
+you get a span of elements from within the list. To get a slice of a list, you write an expression
+in the following general format:
+list_name[start : end]
+
+days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
+'Thursday', 'Friday', 'Saturday']
+
+mid_days = days[2:5]
+print(mid_days)
+
+If you leave out the start index in a slicing expression, Python uses 0 as the starting index.
+
+numbers = [1, 2, 3, 4, 5]
+print(numbers) Enter
+[1, 2, 3, 4, 5]
+print(numbers[:3])
+
+If you leave out the end index in a slicing expression, Python uses the length of the list as
+the end index.
+numbers = [1, 2, 3, 4, 5]
+print(numbers)
+print(numbers[2:])
+
+The slicing examples we have seen so far get slices of consecutive elements from lists. Slicing
+expressions can also have step value, which can cause elements to be skipped in the list.
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(numbers)
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(numbers[1:8:2])
+
+You can also use negative numbers as indexes in slicing expressions to reference positions
+relative to the end of the list. Python adds a negative index to the length of a list to get
+the position referenced by that index.
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(numbers)
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(numbers[−5:])
+
+Finding Items in Lists with the in Operator
+In Python, you can use the in operator to determine whether an item is contained in a list.
+Here is the general format of an expression written with the in operator to search for an
+item in a list:
+item in list
+
+# This program demonstrates the in operator used with a list.
+
+def main():
+    # Create a list of product numbers.
+    prod_nums = ['V475', 'F987', 'Q143', 'R688']
+
+    # Get a product number to search for.
+    search = input('Enter a product number: ')
+
+    # Determine whether the product number is in the list.
+    if search in prod_nums:
+        print(search, 'was found in the list.')
+    else:
+        print(search, 'was not found in the list.')
+
+# Call the main function.
+main()
+
+List Methods and Useful Built-in Functions
+The append Method
+
+The append method is commonly used to add items to a list
+
+# This program demonstrates how the append method can be used to add items to a list.
+
+def main():
+    # First, create an empty list.
+    name_list = []
+
+    # Create a variable to control the loop.
+    again = 'y'
+
+    # Add some names to the list.
+    while again == 'y':
+        # Get a name from the user.
+        name = input('Enter a name: ')
+
+        # Append the name to the list.
+        name_list.append(name)
+
+        # Add another one?
+        print('Do you want to add another name?')
+        again = input('y = yes, anything else = no: ')
+        print()
+    #Display the names that were entered.
+    print('Here are the names you entered.')
+
+    for name in name_list:
+        print(name)
+
+# Call the main function.
+main()
+
+The index Method
+Earlier, you saw how the in operator can be used to determine whether an item is in a list.
+Sometimes you need to know not only whether an item is in a list, but where it is located.
+The index method is useful in these cases. You pass an argument to the index method,
+and it returns the index of the first element in the list containing that item. If the item is
+not found in the list, the method raises a ValueError exception.
+
+# This program demonstrates how to get the index of an item in a list and then replace that item with a new item.
+
+def main():
+    # Create a list with some items.
+    food = ['Pizza', 'Burgers', 'Chips']
+
+    # Display the list.
+    print('Here are the items in the food list:')
+    print(food)
+
+    # Get the item to change.
+    item = input('Which item should I change? ')
+
+    try:
+        # Get the item's index in the list.
+        item_index = food.index(item)
+
+        # Get the value to replace it with.
+        new_item = input('Enter the new value: ')
+
+        # Replace the old item with the new item.
+        food[item_index] = new_item
+
+        # Display the list.
+        print('Here is the revised list:')
+        print(food)
+    except ValueError:
+    print('That item was not found in the list.')
+
+# Call the main function.
+main()
+
+The insert Method
+The insert method allows you to insert an item into a list at a specific position. You
+pass two arguments to the insert method: an index specifying where the item should be
+inserted and the item that you want to insert.
+
+# This program demonstrates the insert method.
+
+def main():
+    # Create a list with some names.
+    names = ['James', 'Kathryn', 'Bill']
+
+# Display the list.
+    print('The list before the insert:')
+    print(names)
+
+    # Insert a new name at element 0.
+    names.insert(0, 'Joe')
+
+    # Display the list again.
+    print('The list after the insert:')
+    print(names)
+
+# Call the main function.
+main()
+
+The sort Method
+The sort method rearranges the elements of a list so they appear in ascending order (from
+the lowest value to the highest value). Here is an example:
+my_list = [9, 1, 0, 2, 8, 6, 7, 4, 5, 3]
+print('Original order:', my_list)
+my_list.sort()
+print('Sorted order:', my_list)
+
+The remove Method
+The remove method removes an item from the list. You pass an item to the method as an
+argument, and the first element containing that item is removed. This reduces the size of the
+list by one element. All of the elements after the removed element are shifted one position
+toward the beginning of the list. A ValueError exception is raised if the item is not found
+in the list.
+
+# This program demonstrates how to use the remove method to remove an item from a list.
+
+def main():
+    # Create a list with some items.
+    food = ['Pizza', 'Burgers', 'Chips']
+
+    # Display the list.
+    print('Here are the items in the food list:')
+    print(food)
+
+    # Get the item to change.
+    item = input('Which item should I remove? ')
+
+    try:
+        # Remove the item.
+        food.remove(item)
+
+        # Display the list.
+        print('Here is the revised list:')
+        print(food)
+
+    except ValueError:
+        print('That item was not found in the list.')
+
+# Call the main function.
+main()
+
+The reverse Method
+The reverse method simply reverses the order of the items in the list. Here is an example:
+my_list = [1, 2, 3, 4, 5]
+print('Original order:', my_list)
+my_list.reverse()
+print('Reversed:', my_list)
+
+The del Statement
+The remove method you saw earlier removes a specific item from a list, if that item is in the
+list. Some situations might require you remove an element from a specific index, regardless
+of the item that is stored at that index. This can be accomplished with the del statement.
+
+my_list = [1, 2, 3, 4, 5]
+print('Before deletion:', my_list)
+del my_list[2]
+print('After deletion:', my_list)
+
+The min and max Functions
+Python has two built-in functions named min and max that work with sequences. The min
+function accepts a sequence, such as a list,
+my_list = [5, 4, 3, 2, 50, 40, 30]
+print('The lowest value is', min(my_list))
+
+Copying Lists
+To make a copy of a list, you must copy the list’s elements.
+Recall that in Python, assigning one variable to another variable simply makes both variables
+reference the same object in memory.
+# Create a list.
+list1 = [1, 2, 3, 4]
+# Assign the list to the list2 variable.
+list2 = list1
+
+list1 = [1, 2, 3, 4]
+list2 = list1
+print(list1)
+
+print(list2)
+
+list1[0] = 99
+print(list1)
+print(list2)
+
+Suppose you wish to make a copy of the list, so list1 and list2 reference two separate
+but identical lists. One way to do this is with a loop that copies each element of the list.
+
+# Create a list with values.
+list1 = [1, 2, 3, 4]
+# Create an empty list.
+list2 = []
+# Copy the elements of list1 to list2.
+for item in list1:
+list2.append(item)
+
+Totaling the Values in a List
+This program calculates the total of the values in a list.
+
+def main():
+# Create a list.
+numbers = [2, 4, 6, 8, 10]
+# Create a variable to use as an accumulator.
+total = 0
+
+for value in numbers:
+total += value
+
+# Calculate the total of the list elements. for value in numbers:
+total += value
+
+# Display the total of the list elements.
+print('The total of the elements is', total)
+
+# Call the main function.
+main()
+
+Averaging the Values in a List
+# This program calculates the average of the values in a list.
+
+def main():
+    # Create a list.
+    scores = [2.5, 7.3, 6.5, 4.0, 5.2]
+
+    # Create a variable to use as an accumulator.
+    total = 0.0
+
+    # Calculate the total of the list elements.
+    for value in scores:
+        total += value
+
+    # Calculate the average of the elements.
+    average = total / len(scores)
+
+    # Display the total of the list elements.
+    print('The average of the elements is', average)
+
+# Call the main function.
+main()
+
+Passing a List as an Argument to a Function
+
+# This program uses a function to calculate the total of the values in a list.
+
+def main():
+# Create a list.
+numbers = [2, 4, 6, 8, 10]
+
+# Display the total of the list elements.
+print('The total is', get_total(numbers))
+
+# The get_total function accepts a list as an
+# argument returns the total of the values in the list.
+def get_total(value_list):
+# Create a variable to use as an accumulator.
+total = 0
+
+# Calculate the total of the list elements.
+for num in value_list:
+total += num
+
+# Return the total.
+return total
+
+# Call the main function.
+main()
+
+Returning a List from a Function
+A function can return a reference to a list
+
+# This program uses a function to create a list.
+# The function returns a reference to the list.
+def main():
+# Get a list with values stored in it.
+numbers = get_values()
+
+# Display the values in the list.
+print('The numbers in the list are:')
+print(numbers)
+
+# The get_values function gets a series of numbers from the user and stores them in a list. The
+# function returns a reference to the list.
+def get_values():
+# Create an empty list.
+values = []
+
+# Create a variable to control the loop.
+again = 'y'
+
+# Get values from the user and add them to the list.
+while again == 'y':
+# Get a number and add it to the list.
+num = int(input('Enter a number: '))
+values.append(num)
+
+# Want to do this again?
+print('Do you want to add another number?')
+again = input('y = yes, anything else = no: ')
+print()
+
+# Return the list 
+return values
+
+# Call the main function.
+main()
+
+Working with Lists and Files
+Some tasks may require you to save the contents of a list to a file, so the data can be used
+at a later time
+
+# This program uses the writelines method to save a list of strings to a file.
+
+def main():
+    # Create a list of strings.
+    cities = ['New York', 'Boston', 'Atlanta', 'Dallas']
+
+    # Open a file for writing.
+    outfile = open('cities.txt', 'w')
+
+    # Write the list to the file.
+    outfile.writelines(cities)
+
+    # Close the file.
+    outfile.close()
+
+# Call the main function.
+main()
+
+# This program saves a list of strings to a file.
+
+def main():
+    # Create a list of strings.
+    cities = ['New York', 'Boston', 'Atlanta', 'Dallas']
+
+    # Open a file for writing.
+    outfile = open('cities.txt', 'w')
+
+    # Write the list to the file.
+    for item in cities:
+        outfile.write(item + '\n')
+
+    # Close the file.
+    outfile.close()
+
+# Call the main function.
+main()
+
+File objects in Python have a method named readlines that returns a file’s contents as a
+list of strings. Each line in the file will be an item in the list. The items in the list will include
+their terminating newline character, which in many cases you will want to strip.
+
+This program reads a file's contents into a list.
+
+def main():
+    # Open a file for reading.
+
+    infile = open('cities.txt', 'r')
+
+    # Read the contents of the file into a list.
+    cities = infile.readlines()
+
+    # Close the file.
+    infile.close()
+
+    # Strip the \n from each element.
+    index = 0
+    while index < len(cities):
+        cities[index] = cities[index].rstrip('\n')
+        index += 1
+
+    # Print the contents of the list.
+    print(cities)
+
+# Call the main function.
+main()
+
+# This program saves a list of numbers to a file.
+
+def main():
+    # Create a list of numbers.
+    numbers = [1, 2, 3, 4, 5, 6, 7]
+
+    # Open a file for writing.
+    outfile = open('numberlist.txt', 'w')
+
+    # Write the list to the file.
+    for number in numbers:
+        outfile.write(str(number) + '\n')
+
+    # Close the file.
+    outfile.close()
+
+# Call the main function.
+main()
+
+# This program reads numbers from a file into a list.
+
+def main():
+    # Open a file for reading.
+    infile = open('numberlist.txt', 'r')
+
+    # Read the contents of the file into a list.
+    numbers = infile.readlines()
+
+    # Close the file.
+    infile.close()
+
+    # Convert each element to an int.
+    index = 0
+    while index < len(numbers):
+        numbers[index] = int(numbers[index])
+        index += 1
+
+    # Print the contents of the list.
+    print(numbers)
+
+# Call the main function.
+main()
+
+Two-Dimensional Lists
+A two-dimensional list is a list that has other lists as its elements
+
+[['Joe', 'Kim'], ['Sam', 'Sue'], ['Kelly', 'Chris']]
+print(students)
+print(students[0])
+print(students[1])
+print(students[2])
+
+Programs that process two-dimensional lists typically do so with nested loops
+
+# This program assigns random numbers to a two-dimensional list.
+import random
+
+# Constants for rows and columns
+ROWS = 3
+COLS = 4
+
+def main():
+    # Create a two-dimensional list.
+    values = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+
+    # Fill the list with random numbers.
+    for r in range(ROWS):
+        for c in range(COLS):
+            values[r][c] = random.randint(1, 100)
+
+    # Display the random numbers.
+    print(values)
+
+# Call the main function.
+main()
+
+
+Tuples
+A tuple is a sequence, very much like a list. The primary difference between tuples and lists
+is that tuples are immutable. That means once a tuple is created, it cannot be changed.
+When you create a tuple, you enclose its elements in a set of parentheses,
+my_tuple = (1, 2, 3, 4, 5)
+print(my_tuple)
+
+Like lists, tuples support indexing
+names = ('Holly', 'Warren', 'Ashley')
+    for i in range(len(names)):
+        print(names[i])
+
+If the only difference between lists and tuples is immutability, you might wonder why tuples
+exist. One reason that tuples exist is performance. Processing a tuple is faster than processing
+a list, so tuples are good choices when you are processing lots of data, and that data
+will not be modified. Another reason is that tuples are safe. Because you are not allowed to
+change the contents of a tuple, you can store data in one and rest assured that it will not
+be modified (accidentally or otherwise) by any code in your program
+
+Converting Between Lists and Tuples
+number_tuple = (1, 2, 3)
+number_list = list(number_tuple)
+print(number_list)
+str_list = ['one', 'two', 'three']
+str_tuple = tuple(str_list)
+print(str_tuple)
+
+Plotting List Data with the matplotlib Package
+
+Importing the pyplot Module
+The matplotlib package contains a module named pyplot that you will need to import in
+order to create all of the graphs. There are several different techniques for importing the module. Perhaps the most straightforward technique
+is like this: 
+    import matplotlib.pyplot
+
+Within the pyplot module, there are several functions that you will call to build and
+display graphs. When you use this form of the import statement, you have to prefix each
+function call with matplotlib.pyplot. For example, there is a function named plot that
+you will call to create line graphs, and you would call the plot function like this:
+matplotlib.pyplot.plot(arguments...)
+
+Having to type matplotlib.pyplot before the name of each function call can become tiresome,
+so we will use a slightly different technique to import the module. We will use the
+following import statement, which creates an alias for the matplotlib.pyplot module:
+import matplotlib.pyplot as plt
+
+This statement imports the matplotlib.pyplot module, and it creates an alias for
+the module named plt. This allows us to use the plt prefix to call any function in the
+matplotlib.
+pyplot module. For example, we can call the plot function like this:
+plt.plot(arguments...)
+
+Plotting a Line Graph
+You can use the plot function to create a line graph that connects a series of data points
+with straight lines. The line graph has a horizontal X axis and a vertical Y axis. Each data
+point in the graph is located at a (X, Y) coordinate.
+To create a line graph, you first create two lists: one containing the X coordinates of each
+data point, and another containing the Y coordinates of each data point. For example, suppose
+we have five data points, located at the following coordinates:
+(0, 0)
+(1, 3)
+(2, 1)
+(3, 5)
+(4, 2)
+We would create two lists to hold the coordinates, such as the following:
+x_coords = [0, 1, 2, 3, 4]
+y_coords = [0, 3, 1, 5, 2]
+
+Next, we call the plot function to create the graph, passing the lists as arguments. Here
+is an example:
+plt.plot(x_coords, y_coords)
+The plot function builds the line graph in memory, but does not display it. To display the
+graph, you call the show function, as shown here:
+plt.show()
+
+# This program displays a simple line graph.
+import matplotlib.pyplot as plt
+
+def main():
+    # Create lists with the X and Y coordinates of each data point.
+    x_coords = [0, 1, 2, 3, 4]
+    y_coords = [0, 3, 1, 5, 2]
+
+    # Build the line graph.
+    plt.plot(x_coords, y_coords)
+    # Display the line graph.
+    plt.show()
+
+# Call the main function.
+main()
+
+Adding a Title, Axis Labels, and a Grid
+You can add a title to your graph with the title function. You simply call the function,
+passing the string that you want displayed as a title. The title will be displayed just above
+the graph. You can also add descriptive labels to the X and Y axes with the xlabel and
+ylabel functions. You call these functions, passing a string that you want displayed along
+the axis. You can also add a grid to the graph by calling the grid function, passing True
+as an argument.
+
+# This program displays a simple line graph.
+import matplotlib.pyplot as plt
+
+def main():
+    # Create lists with the X and Y coordinates of each data point.
+    x_coords = [0, 1, 2, 3, 4]
+    y_coords = [0, 3, 1, 5, 2]
+
+    # Build the line graph.
+    plt.plot(x_coords, y_coords)
+
+    # Add a title.
+    plt.title('Sample Data')
+    # Add labels to the axes.
+    plt.xlabel('This is the X axis')
+    plt.ylabel('This is the Y axis')
+
+    # Add a grid.
+    plt.grid(True)
+
+    # Display the line graph.
+    plt.show()
+
+# Call the main function.
+main()
+
+Customizing the X and Y Axes
+By default, the X axis begins at the lowest X coordinate in your set of data points, and
+it ends at the highest X coordinate in your set of data points.
+The Y axis, by default, is configured in the same way. It begins at the lowest Y coordinate
+in your set of data points, and it ends at the highest Y coordinate in your set of
+data points.
+
+You can change the lower and upper limits of the X and Y axes by calling the xlim and
+ylim functions. Here is an example of calling the xlim function, using keyword arguments
+to set the lower and upper limits of the X axis:
+plt.xlim(xmin=1, xmax=100)
+This statement configures the X axis to begin at the value 1 and end at the value 100. Here
+is an example of calling the ylim function, using keyword arguments to set the lower and
+upper limits of the Y axis:
+plt.ylim(ymin=10, ymax=50)
+
+# This program displays a simple line graph.
+import matplotlib.pyplot as plt
+
+def main():
+    # Create lists with the X and Y coordinates of each data point.
+    x_coords = [0, 1, 2, 3, 4]
+    y_coords = [0, 3, 1, 5, 2]
+
+    # Build the line graph.
+    plt.plot(x_coords, y_coords)
+
+    # Add a title.
+    plt.title('Sample Data')
+
+    # Add labels to the axes.
+    plt.xlabel('This is the X axis')
+    plt.ylabel('This is the Y axis')
+
+    # Set the axis limits.
+    plt.xlim(xmin=-1, xmax=10)
+    plt.ylim(ymin=-1, ymax=6)
+
+    # Add a grid.
+    plt.grid(True)
+
+    # Display the line graph.
+    plt.show()
+
+# Call the main function.
+main()
+
+# This program displays a simple line graph.
+import matplotlib.pyplot as plt
+
+def main():
+    # Create lists with the X and Y coordinates of each data point.
+    x_coords = [0, 1, 2, 3, 4]
+    y_coords = [0, 3, 1, 5, 2]
+
+    # Build the line graph.
+    plt.plot(x_coords, y_coords)
+
+    # Add a title.
+    plt.title('Sales by Year')
+
+    # Add labels to the axes.
+    plt.xlabel('Year')
+    plt.ylabel('Sales')
+
+    # Customize the tick marks.
+    plt.xticks([0, 1, 2, 3, 4], ['2016', '2017', '2018', '2019', '2020'])
+    plt.yticks([0, 1, 2, 3, 4, 5], ['$0m', '$1m', '$2m', '$3m', '$4m', '$5m'])
+
+    # Add a grid.
+    plt.grid(True)
+
+    # Display the line graph.
+plt.show()
+
+# Call the main function.
+main()
+
+Displaying Markers at the Data Points
+You can display a round dot as a marker at each data point in your line graph by using the
+keyword argument marker='o' with the plot function.
+
+# This program displays a simple line graph.
+import matplotlib.pyplot as plt
+
+def main():
+    # Create lists with the X and Y coordinates of each data point.
+    x_coords = [0, 1, 2, 3, 4]
+    y_coords = [0, 3, 1, 5, 2]
+
+    # Build the line graph.
+    plt.plot(x_coords, y_coords, marker='o')
+
+    # Add a title.
+    plt.title('Sales by Year')
+
+    # Add labels to the axes.
+    plt.xlabel('Year')
+    plt.ylabel('Sales')
+
+    # Customize the tick marks.
+    plt.xticks([0, 1, 2, 3, 4], ['2016', '2017', '2018', '2019', '2020'])
+    plt.yticks([0, 1, 2, 3, 4, 5], ['$0m', '$1m', '$2m', '$3m', '$4m', '$5m'])
+    # Add a grid.
+    plt.grid(True)
+
+    # Display the line graph.
+    plt.show()
+
+# Call the main function.
+main()
+
+Some of the marker symbols
+marker5  Argument Result
+marker5'o' Displays round dots as markers
+marker5's' Displays squares as markers
+marker5'*' Displays small stars as markers
+marker5'D' Displays small diamonds as markers
+marker5'^' Displays upward triangles as markers
+marker5'v' Displays downward triangles as markers
+marker5'>' Displays right-pointing triangles as markers
+marker5'<' Displays left-pointing triangles as markers
+
+Plotting a Bar Chart
+
+You can use the bar function in the matplotlib.pyplot module to create a bar chart.
+A bar chart has a horizontal X axis, a vertical Y axis, and a series of bars that typically
+originate from the X axis. Each bar represents a value, and the bar’s height is proportional
+to the value that the bar represents.
+
+# This program displays a simple bar chart.
+import matplotlib.pyplot as plt
+
+def main():
+    # Create a list with the X coordinates of each bar's left edge.
+    left_edges = [0, 10, 20, 30, 40]
+
+    # Create a list with the heights of each bar.   
+    heights = [100, 200, 300, 400, 500]
+
+    # Build the bar chart.
+    plt.bar(left_edges, heights)
+
+    # Display the bar chart.
+    plt.show()
+
+# Call the main function.
+main()
+
+Customizing the Bar Width
+The default width of each bar in a bar graph is 0.8 along the X axis. You can change the
+bar width by passing a third argument to the bar function.
+
+# This program displays a simple bar chart.
+import matplotlib.pyplot as plt
+
+def main():
+    # Create a list with the X coordinates of each bar's left edge.
+    left_edges = [0, 10, 20, 30, 40]
+
+    # Create a list with the heights of each bar.
+    heights = [100, 200, 300, 400, 500]
+
+    # Create a variable for the bar width.
+    bar_width = 5
+
+    # Build the bar chart.
+    plt.bar(left_edges, heights, bar_width)
+
+    # Display the bar chart.
+    plt.show()
+
+# Call the main function.
+main()
+
+Changing the Colors of the Bars
+The bar function has a color parameter that you can use to change the colors of the bars
+in a bar chart. The argument that you pass into this parameter is a tuple containing a series
+of color codes
+Color Code Corresponding Color
+    'b'     Blue
+    'g'     Green
+    'r'     Red
+    'c' Cyan
+    'm' Magenta
+    'y' Yellow
+    'k' Black
+    'w' White
+
+# This program displays a sales chart.
+import matplotlib.pyplot as plt
+
+def main():
+    # Create a list with the X coordinates of each bar's left edge.
+    left_edges = [0, 10, 20, 30, 40]
+
+    # Create a list with the heights of each bar.
+    heights = [100, 200, 300, 400, 500]
+
+    # Create a variable for the bar width.
+    bar_width = 10
+
+    # Build the bar chart.
+    plt.bar(left_edges, heights, bar_width, color=('r', 'g', 'b', 'w', 'k'))
+
+    # Add a title.
+    plt.title('Sales by Year')
+
+    # Add labels to the axes.
+    plt.xlabel('Year')
+    plt.ylabel('Sales')
+
+    # Customize the tick marks.
+    plt.xticks([5, 15, 25, 35, 45], ['2016', '2017', '2018', '2019', '2020'])
+    plt.yticks([0, 100, 200, 300, 400, 500], ['$0m', '$1m', '$2m', '$3m', '$4m', '$5m'])
+
+    # Display the bar chart.
+    plt.show()
+
+# Call the main function.
+main()
+
+Plotting a Pie Chart
+A pie chart is a graph that shows a circle that is divided into slices. The circle represents
+the whole, and the slices represent percentages of the whole.
+When you call the pie function, you pass a list of values as an argument. The pie function
+will calculate the sum of the values in the list, then use that sum as the value of the whole.
+Then, each element in the list will become a slice in the pie chart.
+
+# This program displays a simple pie chart.
+import matplotlib.pyplot as plt
+
+def main():
+    # Create a list of values
+    values = [20, 60, 80, 40]
+    # Create a pie chart from the values.
+    plt.pie(values)
+
+    # Display the pie chart.
+    plt.show()
+
+# Call the main function.
+main()
+
+Displaying Slice Labels and a Chart Title
+The pie function has a labels parameter that you can use to display labels for the slices
+in the pie chart. The argument that you pass into this parameter is a list containing the
+desired labels, as strings
+
+# This program displays a simple pie chart.
+import matplotlib.pyplot as plt
+
+def main():
+    # Create a list of sales amounts.
+    sales = [100, 400, 300, 600]
+    # Create a list of labels for the slices.
+    slice_labels = ['1st Qtr', '2nd Qtr', '3rd Qtr', '4th Qtr']
+
+    # Create a pie chart from the values.
+    plt.pie(sales, labels=slice_labels)
+
+    # Add a title.
+    plt.title('Sales by Quarter')
+
+    # Display the pie chart.
+    plt.show()
+
+# Call the main function.
+main()

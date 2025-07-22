@@ -1,0 +1,231 @@
+A repetition structure causes a statement or set of statements to execute
+repeatedly
+
+you use the while statement
+to write a condition-controlled loop.
+
+The while Loop
+
+# This program calculates sales commissions.
+
+ # Create a variable to control the loop.
+keep_going = 'y'
+
+# Calculate a series of commissions.
+while keep_going == 'y':
+    # Get a salesperson's sales and commission rate.
+    sales = float(input('Enter the amount of sales: '))
+    comm_rate = float(input('Enter the commission rate: '))
+
+# Calculate the commission.
+    commission = sales * comm_rate
+# Display the commission.
+
+    print('The commission is $', format(commission, ',.2f'), sep='')
+
+# See if the user wants to do another one.
+    keep_going = input('Do you want to calculate another ' + 'commission (Enter y for yes): ')
+
+
+This program assists a technician in the process
+# of checking a substance's temperature.
+
+# Named constant to represent the maximum
+# temperature.
+MAX_TEMP = 102.5
+
+# Get the substance's temperature.
+temperature = float(input("Enter the substance's Celsius temperature: "))
+
+# As long as necessary, instruct the user to adjust the thermostat.
+
+while temperature > MAX_TEMP:
+    print('The temperature is too high.')
+    print('Turn the thermostat down and wait')
+    print('5 minutes. Then take the temperature')
+    print('again and enter it.')
+    temperature = float(input('Enter the new Celsius temperature: '))
+    # Remind the user to check the temperature again
+    # in 15 minutes.
+    print('The temperature is acceptable.')
+    print('Check it again in 15 minutes.')
+
+In Python,
+you use the for statement to write a count-controlled loop.
+
+print('I will display the odd numbers 1 through 9.')
+for num in [1, 3, 5, 7, 9]:
+    print(num)
+
+
+The range function creates a type of object known as an iterable.
+An iterable is an object that is similar to a list. It contains a sequence of values that can be iterated over with something like a loop
+
+for num in range(5):
+    print(num)
+
+for num in range(1, 5):
+    print(num)
+
+By default, the range function produces a sequence of numbers that increase by 1 for each successive number in the list. If you pass a third argument to the range function, that The for Loop: A Count-Controlled Loop argument is used as step value. Instead of increasing by 1, each successive number in the sequence will increase by the step value.
+for num in range(1, 10, 2):
+    print(num)
+
+
+This program uses a loop to display a table showing the numbers 1 through 10
+and their squares.
+
+# Print the table headings.
+print('Number\tSquare')
+print('--------------')
+
+# Print the numbers 1 through 10
+# and their squares.
+for number in range(1, 11):
+    square = number**2
+print(number, '\t', square)
+
+speed_converter.py
+# This program converts the speeds 60 kph
+# through 130 kph (in 10 kph increments)
+# to mph.
+
+START_SPEED = 60 # Starting speed
+END_SPEED = 131 # Ending speed
+INCREMENT = 10 # Speed increment
+CONVERSION_FACTOR = 0.6214 # Conversion factor
+
+# Print the table headings.
+print('KPH\tMPH')
+print('--------------')
+# Print the speeds.
+for kph in range(START_SPEED, END_SPEED, INCREMENT)
+    mph = kph * CONVERSION_FACTOR
+    print(kph, '\t', format(mph, '.1f'))
+
+user_squares1.py
+# This program uses a loop to display a
+# table of numbers and their squares.
+
+# Get the ending limit.
+print('This program displays a list of numbers')
+print('(starting at 1) and their squares.')
+end = int(input('How high should I go? '))
+
+# Print the table headings.
+print()
+print('Number\tSquare')
+print('--------------')
+
+# Print the numbers and their squares.
+for number in range(1, end + 1):
+    square = number**2
+    print(number, '\t', square)
+
+
+
+for num in range(5, 0, −1):
+print(num)
+
+A running total is a sum of numbers that accumulates with each iteration
+of a loop. The variable used to keep the running total is called an
+accumulator.
+# This program calculates the sum of a series
+# of numbers entered by the user.
+
+MAX = 5 # The maximum number
+
+# Initialize an accumulator variable.
+total = 0.0
+
+# Explain what we are doing.
+print('This program calculates the sum of')
+print(MAX, 'numbers you will enter.')
+
+
+# Get the numbers and accumulate them.
+for counter in range(MAX):
+    number = int(input('Enter a number: '))
+    total = total + number
+
+    # Display the total of the numbers.
+    print('The total is', total)
+
+The Augmented Assignment Operators
+Quite often, programs have assignment statements in which the variable that is on the left side of the = operator also appears on the right side of the = operator
+
+Augmented assignment operators
+Operator Example Usage Equivalent To
++= x += 5 x = x + 5
+−= y −= 2 y = y − 2
+*= z *= 10 z = z * 10
+/= a /= b a = a / b
+%= c %= 3 c = c % 3
+
+A sentinel is a special value that marks the end of a sequence of values
+When processing a long sequence of values with a loop, perhaps a better technique is to
+use a sentinel. A sentinel is a special value that marks the end of a sequence of items. When
+a program reads the sentinel value, it knows it has reached the end of the sequence, so the
+loop terminates.
+
+Writing an Input Validation Loop
+
+Samantha owns an import business, and she calculates the retail prices of her products with the following formula:
+retail price = wholesale cost x 2.5
+She currently uses the program  to calculate retail prices
+
+retail_no_validation.py
+MARK_UP = 2.5 # The markup percentage
+another = 'y' # Variable to control the loop.
+
+# Process one or more items.
+while another == 'y' or another == 'Y':
+    # Get the item's wholesale cost.
+    wholesale = float(input("Enter the item's " + "wholesale cost: "))
+
+    # Calculate the retail price.
+    retail = wholesale * MARK_UP
+
+    # Display the retail price.
+    print('Retail price: $', format(retail, ',.2f'), sep='')
+
+
+    # Do this again?
+    another = input('Do you have another item? ' + '(Enter y for yes): ')
+
+validate for negative inputs
+# Validate the wholesale cost.
+while wholesale < 0:
+print('ERROR: the cost cannot be negative.')
+wholesale = float(input('Enter the correct' + 'wholesale cost: '))
+
+loop that is inside another loop is called a nested loop.
+
+# This program averages test scores. It asks the user for the
+# number of students and the number of test scores per student.
+
+# Get the number of students.
+num_students = int(input('How many students do you have? '))
+# Get the number of test scores per student.
+
+num_test_scores = int(input('How many test scores per student? '))
+
+# Determine each student's average test score.
+for student in range(num_students):
+# Initialize an accumulator for test scores.
+    total = 0.0
+    # Get a student's test scores.
+    print('Student number', student + 1)
+    print('–––––––––––––––––')
+    for test_num in range(num_test_scores):
+        print('Test number', test_num + 1, end='')
+        score = float(input(': '))
+        # Add the score to the accumulator.
+        total += score
+
+    # Calculate the average test score for this student.
+    average = total / num_test_scores
+
+    # Display the average.
+    print('The average for student number', student + 1, 'is:', average)
+    print()

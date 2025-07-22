@@ -1,0 +1,422 @@
+Dictionaries
+A dictionary is an object that stores a collection of data. Each element in
+a dictionary has two parts: a key and a value. You use a key to locate a
+specific value.
+
+Key-value pairs are often referred to as mappings because each key is mapped
+to a value.
+
+You can create a dictionary by enclosing the elements inside a set of curly braces ( {} ).
+An element consists of a key, followed by a colon, followed by a value. The elements are
+separated by commas. The following statement shows an example:
+phonebook = {'Chris':'555−1111', 'Katie':'555−2222', 'Joanne':'555−3333'}
+
+The values in a dictionary can be
+objects of any type, but the keys must be immutable objects. For example, keys can be
+strings, integers, floating-point values, or tuples. Keys cannot be lists or any other type of
+immutable object.
+Retrieving a Value from a Dictionary
+
+To retrieve a value from a dictionary, you simply write an expression in the following
+general format:
+dictionary_name[key]
+phonebook = {'Chris':'555−1111', 'Katie':'555−2222', 'Joanne':'555−3333'}
+print(phonebook['Kathryn'])
+
+Using the in and not in Operators to Test for a Value in a Dictionary
+
+if 'Chris' in phonebook:
+    print(phonebook['Chris'])
+
+Adding Elements to an Existing Dictionary
+Dictionaries are mutable objects. You can add new key-value pairs to a dictionary with an
+assignment statement in the following general format:
+dictionary_name[key] = value
+
+In the general format, dictionary_name is the variable that references the dictionary, and
+key is a key. If key already exists in the dictionary, its associated value will be changed to
+value. If the key does not exist, it will be added to the dictionary, along with value as its
+associated value.
+
+phonebook = {'Chris':'555−1111', 'Katie':'555−2222','Joanne':'555−3333'}
+phonebook['Joe'] = '555−0123'
+phonebook['Chris'] = '555−4444'
+print(phonebook)
+
+Deleting Elements
+You can delete an existing key-value pair from a dictionary with the del statement. Here
+is the general format:
+del dictionary_name[key]
+
+dictionary_name is the variable that references the dictionary, and
+key is a key. After the statement executes, the key and its associated value will be deleted
+from the dictionary. If the key does not exist, a KeyError exception is raised.
+
+phonebook = {'Chris':'555−1111', 'Katie':'555−2222', 'Joanne':'555−3333'}
+print(phonebook)
+del phonebook['Chris']
+print(phonebook)
+del phonebook['Chris']
+print(phonebook)
+
+Getting the Number of Elements in a Dictionary
+phonebook = {'Chris':'555−1111', 'Katie':'555−2222'}
+num_items = len(phonebook)
+print(num_items)
+
+Mixing Data Types in a Dictionary
+
+the keys in a dictionary must be immutable objects, but their
+associated values can be any type of object. For example, the values can be lists, as demonstrated
+in the following interactive session.
+
+test_scores = { 'Kayla' : [88, 92, 100], 'Luis' : [95, 74, 81], 'Sophie' : [72, 88, 91], 'Ethan' : [70, 75, 78] }
+print(test_scores)
+kayla_scores = test_scores['Kayla']
+print(kayla_scores)
+
+The values that are stored in a single dictionary can be of different types. For example, one
+element’s value might be a string, another element’s value might be a list, and yet another
+element’s value might be an integer.
+mixed_up = {'abc':1, 999:'yada yada', (3, 6, 9):[3, 6, 9]}
+print(mixed_up)
+
+It creates a dictionary that contains various pieces of data about an employee:
+employee = {'name' : 'Kevin Smith', 'id' : 12345, 'payrate' : 25.75 }
+print(employee)
+
+Creating an Empty Dictionary
+you need to create an empty dictionary and then add elements to it as the program executes.
+
+phonebook = {}
+print(phonebook)
+phonebook['Chris'] = '555−1111'
+phonebook['Katie'] = '555−2222'
+phonebook['Joanne'] = '555−3333'
+print(phonebook)
+
+Using the for Loop to Iterate over a Dictionary
+You can use the for loop in the following general format to iterate over all the keys in a
+dictionary:
+for var in dictionary:
+    statement
+    statement
+    etc.
+
+phonebook = {'Chris':'555−1111', 'Katie':'555−2222', 'Joanne':'555−3333'}
+for key in phonebook:
+    print(key)
+for key in phonebook:
+    print(key, phonebook[key])
+
+Dictionary  Methods
+Method      Description
+clear       Clears the contents of a dictionary.
+get         Gets the value associated with a specified key. If the key is not found, the method
+            does not raise an exception. Instead, it returns a default value.
+items       Returns all the keys in a dictionary and their associated values as a sequence of tuples.
+keys        Returns all the keys in a dictionary as a sequence of tuples.
+pop         Returns the value associated with a specified key and removes that key-value pair from the dictionary. If the key is not found, the method returns a default value.
+popitem     Returns a randomly selected key-value pair as a tuple from the dictionary and removes that key-value pair from the dictionary.
+values      Returns all the values in the dictionary as a sequence of tuples.
+
+The clear Method
+The clear method deletes all the elements in a dictionary, leaving the dictionary empty.
+The method’s general format is
+dictionary.clear()
+
+phonebook = {'Chris':'555−1111', 'Katie':'555−2222'}
+print(phonebook)
+phonebook.clear()
+print(phonebook)
+
+The get Method
+You can use the get method as an alternative to the [] operator for getting a value from
+a dictionary. The get method does not raise an exception if the specified key is not found.
+Here is the method’s general format:
+dictionary.get(key, default)
+
+phonebook = {'Chris':'555−1111', 'Katie':'555−2222'}
+value = phonebook.get('Katie', 'Entry not found')
+print(value)
+
+value = phonebook.get('Andy', 'Entry not found') Enter
+print(value)
+
+phonebook = {'Chris':'555-1111', 'Katie':'555-2222'}
+value = phonebook.get('Katie', 'Entry not found')
+print(value)
+
+value = phonebook.get('Andy', 'Entry not found')
+print(value)
+
+The items Method
+The items method returns all of a dictionary’s keys and their associated values. They are returned as a special type of sequence known as a dictionary view. Each element in the dictionary view is a tuple, and each tuple contains a key and its associated value.
+
+phonebook = {'Chris':'555−1111', 'Katie':'555−2222', 'Joanne':'555−3333'}
+phonebook.items()
+
+phonebook = {'Chris':'555−1111', 'Katie':'555−2222', 'Joanne':'555−3333'}
+for key, value in phonebook.items():
+    print(key, value)
+
+The keys Method
+The keys method returns all of a dictionary’s keys as a dictionary view, which is a type of
+sequence. Each element in the dictionary view is a key from the dictionary
+print(phonebook.keys)
+for key in phonebook.keys():
+    print(key)
+
+The pop Method
+The pop method returns the value associated with a specified key and removes that keyvalue
+pair from the dictionary. If the key is not found, the method returns a default value.
+Here is the method’s general format:
+dictionary.pop(key, default)
+
+
+phone_num = phonebook.pop('Andy', 'Element not found')
+
+The values Method
+The values method returns all a dictionary’s values (without their keys) as a dictionary view, which is a type of sequence. Each element in the dictionary view is a value from the dictionary.
+
+print(phonebook.values())
+for val in phonebook.values():
+    print(val)
+
+Storing Names and Birthdays in a Dictionary
+we look at a program that keeps your friends’ names and birthdays in a
+dictionary. Each entry in the dictionary uses a friend’s name as the key, and that friend’s
+birthday as the value. You can use the program to look up your friends’ birthdays by entering
+their names.
+
+birthdays.py
+# This program uses a dictionary to keep friends' names and birthdays.
+
+# Global constants for menu choices
+LOOK_UP = 1
+ADD = 2
+CHANGE = 3
+DELETE = 4
+QUIT = 5
+
+# main function
+def main():
+# Create an empty dictionary.
+birthdays = {}
+# Initialize a variable for the user's choice.
+choice = 0
+
+while choice != QUIT:
+# Get the user's menu choice.
+choice = get_menu_choice()
+
+# Process the choice.
+if choice == LOOK_UP:
+look_up(birthdays)
+elif choice == ADD:
+add(birthdays)
+elif choice == CHANGE:
+change(birthdays)
+elif choice == DELETE:
+delete(birthdays)
+
+# The get_menu_choice function displays the menu
+# and gets a validated choice from the user.
+def get_menu_choice():
+print()
+print('Friends and Their Birthdays')
+print('---------------------------')
+print('1. Look up a birthday')
+print('2. Add a new birthday')
+print('3. Change a birthday')
+print('4. Delete a birthday')
+print('5. Quit the program')
+print()
+
+# Get the user's choice.
+choice = int(input('Enter your choice: '))
+
+# Validate the choice.
+while choice < LOOK_UP or choice > QUIT:
+choice = int(input('Enter a valid choice: '))
+
+# return the user's choice.
+return choice
+
+# The look_up function looks up a name in the
+# birthdays dictionary.
+def look_up(birthdays):
+# Get a name to look up.
+name = input('Enter a name: ')
+# Look it up in the dictionary.
+print(birthdays.get(name, 'Not found.'))
+
+# The add function adds a new entry into the
+# birthdays dictionary.
+def add(birthdays):
+# Get a name and birthday.
+name = input('Enter a name: ')
+bday = input('Enter a birthday: ')
+
+# If the name does not exist, add it.
+if name not in birthdays:
+birthdays[name] = bday
+else:
+print('That entry already exists.')
+
+# The change function changes an existing
+# entry in the birthdays dictionary.
+def change(birthdays):
+# Get a name to look up.
+name = input('Enter a name: ')
+
+if name in birthdays:
+# Get a new birthday.
+bday = input('Enter the new birthday: ')
+
+# Update the entry.
+birthdays[name] = bday
+else:
+print('That name is not found.’)
+# The delete function deletes an entry from the
+# birthdays dictionary.
+def delete(birthdays):
+# Get a name to look up.
+name = input('Enter a name: ')
+# If the name is found, delete the entry.
+if name in birthdays:
+del birthdays[name]
+else:
+print('That name is not found.')
+
+# Call the main function.
+main()
+
+Serializing Objects
+Serializing a object is the process of converting the object to a stream
+of bytes that can be saved to a file for later retrieval. In Python, object
+serialization is called pickling.
+
+Sometimes you need to store the
+contents of a complex object, such as a dictionary or a set, to a file. The easiest way to save
+an object to a file is to serialize the object. When an object is serialized, it is converted to a
+stream of bytes that can be easily stored in a file for later retrieval.
+In Python, the process of serializing an object is referred to as pickling. The Python standard
+library provides a module named pickle that has various functions for serializing, or pickling, objects.
+
+Once you import the pickle module, you perform the following steps to pickle an object:
+• You open a file for binary writing.
+• You call the pickle module’s dump method to pickle the object and write it to the
+specified file.
+• After you have pickled all the objects that you want to save to the file, you close the file
+
+To open a file for binary writing, you use 'wb' as the mode when you call the open function. For example, the following statement
+opens a file named mydata.dat for binary writing:
+outputfile = open('mydata.dat', 'wb')
+
+Once you have opened a file for binary writing, you call the pickle module’s dump function.
+Here is the general format of the dump method:
+pickle.dump(object, file)
+
+In the general format, object is a variable that references the object you want to pickle,
+and file is a variable that references a file object. After the function executes, the object
+referenced by object will be serialized and written to the file. (You can pickle just about any type of object, including lists, tuples, dictionaries, sets, strings, integers, and floating point numbers.)
+
+You can save as many pickled objects as you want to a file. When you are finished, you call
+the file object’s close method to close the file.
+
+import pickle
+phonebook = {'Chris' : '555−1111', 'Katie' : '555−2222', 'Joanne' : '555−3333'}
+output_file = open('phonebook.dat', 'wb')
+pickle.dump(phonebook, output_file)
+output_file.close()
+
+At some point, you will need to retrieve, or unpickle, the objects that you have pickled.
+Here are the steps that you perform:
+• You open a file for binary reading.
+• You call the pickle module’s load function to retrieve an object from the file and
+unpickle it.
+• After you have unpickled all the objects that you want from the file, you close the file.
+
+import pickle
+input_file = open('phonebook.dat', 'rb')
+pb = pickle.load(inputfile)
+print(pb)
+input_file.close()
+
+# This program demonstrates object pickling.
+import pickle
+# main function
+
+def main():
+    again = 'y' # To control loop repetition
+
+    # Open a file for binary writing.
+    output_file = open('info.dat', 'wb')
+
+    # Get data until the user wants to stop.
+    
+    while again.lower() == 'y':
+    # Get data about a person and save it.
+    save_data(output_file)
+
+    # Does the user want to enter more data?
+    again = input('Enter more data? (y/n): ')
+
+    # Close the file.
+    output_file.close()
+
+    # The save_data function gets data about a person,
+    # stores it in a dictionary, and then pickles the dictionary to the specified file.
+
+def save_data(file):
+    # Create an empty dictionary.
+    person = {}
+
+    # Get data for a person and store it in the dictionary.
+
+    person['name'] = input('Name: ')
+    person['age'] = int(input('Age: '))
+    person['weight'] = float(input('Weight: '))
+
+    # Pickle the dictionary.
+    pickle.dump(person, file)
+
+# Call the main function.
+main()
+
+# This program demonstrates object unpickling.
+import pickle
+# main function
+def main():
+end_of_file = False # To indicate end of file
+
+# Open a file for binary reading.
+input_file = open('info.dat', 'rb')
+
+# Read to the end of the file.
+while not end_of_file:
+    try:
+    # Unpickle the next object.
+    person = pickle.load(input_file)
+
+    # Display the object.
+    display_data(person)
+    except EOFError:
+    # Set the flag to indicate the end
+    # of the file has been reached.
+    end_of_file = True
+
+    # Close the file.
+    input_file.close()
+
+# The display_data function displays the person data
+# in the dictionary that is passed as an argument.
+def display_data(person):
+    print('Name:', person['name'])
+    print('Age:', person['age'])
+    print('Weight:', person['weight'])
+    print()
+
+# Call the main function.
+main()

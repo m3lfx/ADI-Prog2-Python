@@ -54,11 +54,31 @@
 # # Display the average.
 # print('The average score is', average)
 
-length = float(input("enter a length "))
-float_area = length ** 2
-integer_area = int(area)
-print(area)
-print(int(area))
-floatPrice
+# length = float(input("enter a length "))
+# float_area = length ** 2
+# integer_area = int(area)
+# print(area)
+# print(int(area))
+
+# leftover = 17 % 3
+# print(leftover)
+
+total_seconds = float(input('Enter a number of seconds: '))
+
+# Get the number of hours.
+hours = total_seconds // 3600
+
+# Get the number of remaining minutes.
+minutes = (total_seconds // 60) % 60
+
+# Get the number of remaining seconds.
+seconds = total_seconds % 60
+
+# Display the results.
+print('Here is the time in hours, minutes, and seconds:')
+print('Hours:', hours)
+print('Minutes:', minutes)
+print('Seconds:', seconds)
+
  
 

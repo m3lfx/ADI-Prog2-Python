@@ -1,0 +1,391 @@
+Basic String Operations
+
+Iterating over a String with the for Loop
+One of the easiest ways to access the individual characters in a string is to use the for loop.
+
+name = 'Juliet'
+for ch in name:
+print(ch)
+
+# This program counts the number of times the letter T (uppercase or lowercase) appears in a string.
+
+def main():
+# Create a variable to use to hold the count. The variable must start with 0.
+count = 0
+
+# Get a string from the user.
+my_string = input('Enter a sentence: ')
+
+# Count the Ts.
+for ch in my_string:
+    if ch == 'T' or ch == 't':
+        count += 1
+
+# Print the result.
+print('The letter T appears', count, 'times.')
+
+# Call the main function.
+main()
+
+Indexing
+Another way that you can access the individual characters in a string is with an index. Each
+character in a string has an index that specifies its position in the string. Indexing starts
+at 0, so the index of the first character is 0, the index of the second character is 1, and so
+forth. The index of the last character in a string is 1 less than the number of characters in
+the string.
+
+my_string = 'Roses are red'
+print(my_string[0], my_string[6], my_string[10])
+
+The len Function
+The
+len function can also be used to get the length of a string.
+city = 'Boston'
+size = len(city)
+print(size)
+
+city = 'Boston'
+index = 0
+while index < len(city):
+print(city[index])
+index += 1
+
+String Concatenation
+A common operation that performed on strings is concatenation, or appending one string
+to the end of another string
+
+first_name = 'Emily'
+last_name = 'Yeager'
+full_name = first_name + ' ' + last_name
+print(full_name)
+
+letters = 'abc'
+letters += 'def'
+print(letters)
+
+Strings Are Immutable
+In Python, strings are immutable, which means once they are created, they cannot be
+changed. Some operations, such as concatenation, give the impression that they modify
+strings, but in reality they do not.
+
+# This program concatenates strings.
+
+def main():
+name = 'Carmen'
+print('The name is', name)
+name = name + ' Brown'
+print('Now the name is', name)
+
+# Call the main function.
+main()
+
+String Slicing
+You can use slicing expressions to select a range of characters
+from a string
+
+When you take a slice from a string, you get a span of characters from within the string.
+String slices are also called substrings.
+To get a slice of a string, you write an expression in the following general format:
+string[start : end]
+
+In the general format, start is the index of the first character in the slice, and end is the
+index marking the end of the slice. The expression will return a string containing a copy
+of the characters from start up to (but not including) end.
+
+full_name = 'Patty Lynn Smith'
+middle_name = full_name[6:10]
+
+If you leave out the start index in a slicing expression, Python uses 0 as the starting index. Here is an
+example:
+full_name = 'Patty Lynn Smith'
+first_name = full_name[:5]
+
+If you leave out the end
+index in a slicing expression, Python uses the length of the string as the end index.
+full_name = 'Patty Lynn Smith'
+last_name = full_name[11:]
+
+full_name = 'Patty Lynn Smith'
+my_string = full_name[:]
+
+You can also use negative numbers as indexes in slicing expressions to reference positions
+relative to the end of the string.
+full_name = 'Patty Lynn Smith'
+last_name = full_name[−5:]
+
+Extracting Characters from a String
+
+At a university, each student is assigned a system login name, which the student uses to log
+into the campus computer system. As part of your internship with the university’s Information
+Technology department, you have been asked to write the code that generates system
+login names for students. You will use the following algorithm to generate a login name:
+1. Get the first three characters of the student’s first name. (If the first name is less than
+three characters in length, use the entire first name.)
+2. Get the first three characters of the student’s last name. (If the last name is less than
+three characters in length, use the entire last name.)
+3. Get the last three characters of the student’s ID number. (If the ID number is less
+than three characters in length, use the entire ID number.)
+4. Concatenate the three sets of characters to generate the login name.
+login.py
+
+# The get_login_name function accepts a first name, last name, and ID number as arguments. It returns
+# a system login name.
+def get_login_name(first, last, idnumber):
+# Get the first three letters of the first name.
+# If the name is less than 3 characters, the
+# slice will return the entire first name.
+set1 = first[0 : 3]
+
+# Get the first three letters of the last name.
+# If the name is less than 3 characters, the slice will return the entire last name.
+set2 = last[0 : 3]
+
+# Get the last three characters of the student ID.
+# If the ID number is less than 3 characters, the slice will return the entire ID number.
+set3 = idnumber[−3 :]
+
+# Put the sets of characters together.
+login_name = set1 + set2 + set3
+
+# Return the login name.
+return login_name
+
+generate_login.py
+
+# This program gets the user's first name, last name, and
+# student ID number. Using this data it generates a
+# system login name.
+import login
+
+def main():
+    # Get the user's first name, last name, and ID number.
+    first = input('Enter your first name: ')
+    last = input('Enter your last name: ')
+    idnumber = input('Enter your student ID number: ')
+
+    # Get the login name.
+    print('Your system login name is:')
+    print(login.get_login_name(first, last, idnumber))
+
+# Call the main function.
+main()
+
+Testing Strings with in and not in
+In Python, you can use the in operator to determine whether one string is contained in another
+string. Here is the general format of an expression using the in operator with two strings:
+string1 in string2
+
+text = 'Four score and seven years ago'
+if 'seven' in text:
+print('The string "seven" was found.')
+else:
+print('The string "seven" was not found.')
+
+You can use the not in operator to determine whether one string is not contained in
+another string
+names = 'Bill Joanne Susan Chris Juan Katie'
+if 'Pierre' not in names:
+    print('Pierre was not found.')
+else:
+    print('Pierre was found.')
+
+String Testing Methods
+the isdigit method returns true if the string contains only numeric digits
+string1 = '1200'
+if string1.isdigit():
+    print(string1, 'contains only digits.')
+else:
+    print(string1, 'contains characters other than digits.')
+
+isalnum() Returns true if the string contains only alphabetic letters or digits and is at
+least one character in length. Returns false otherwise.
+isalpha() Returns true if the string contains only alphabetic letters and is at least one
+character in length. Returns false otherwise.
+isdigit() Returns true if the string contains only numeric digits and is at least one
+character in length. Returns false otherwise.
+islower() Returns true if all of the alphabetic letters in the string are lowercase, and the
+string contains at least one alphabetic letter. Returns false otherwise.
+isspace() Returns true if the string contains only whitespace characters and is at least
+one character in length. Returns false otherwise. (Whitespace characters are
+spaces, newlines (\n), and tabs (\t).
+isupper() Returns true if all of the alphabetic letters in the string are uppercase, and the
+string contains at least one alphabetic letter. Returns false otherwise.
+
+# This program demonstrates several string testing methods.
+
+def main():
+# Get a string from the user.
+user_string = input('Enter a string: ')
+
+print('This is what I found about that string:')
+
+# Test the string.
+if user_string.isalnum():
+print('The string is alphanumeric.')
+if user_string.isdigit():
+print('The string contains only digits.')
+if user_string.isalpha():
+print('The string contains only alphabetic characters.')
+if user_string.isspace():
+print('The string contains only whitespace characters.')
+if user_string.islower():
+print('The letters in the string are all lowercase.')
+if user_string.isupper():
+print('The letters in the string are all uppercase.')
+
+# Call the string.
+main()
+
+lower() Returns a copy of the string with all alphabetic letters converted to lowercase.
+Any character that is already lowercase, or is not an alphabetic letter, is
+unchanged.
+lstrip() Returns a copy of the string with all leading whitespace characters removed.
+Leading whitespace characters are spaces, newlines (\n), and tabs (\t) that
+appear at the beginning of the string.
+lstrip(char) The char argument is a string containing a character. Returns a copy of the string
+with all instances of char that appear at the beginning of the string removed.
+rstrip() Returns a copy of the string with all trailing whitespace characters removed.
+Trailing whitespace characters are spaces, newlines (\n), and tabs (\t) that
+appear at the end of the string.
+rstrip(char) The char argument is a string containing a character. The method returns
+a copy of the string with all instances of char that appear at the end of the
+string removed.
+strip() Returns a copy of the string with all leading and trailing whitespace characters
+removed.
+strip(char) Returns a copy of the string with all instances of char that appear at the
+beginning and the end of the string removed.
+upper() Returns a copy of the string with all alphabetic letters converted to uppercase. Any
+character that is already uppercase, or is not an alphabetic letter, is unchanged.
+
+letters = 'WXYZ'
+print(letters, letters.lower())
+letters = 'abcd'
+print(letters, letters.upper())
+
+Searching and Replacing
+Method Description
+endswith(substring) The substring argument is a string. The method returns true if
+the string ends with substring.
+find(substring) The substring argument is a string. The method returns
+the lowest index in the string where substring is found. If
+substring is not found, the method returns −1.
+replace(old, new) The old and new arguments are both strings. The method returns
+a copy of the string with all instances of old replaced by new.
+startswith(substring) The substring argument is a string. The method returns true if
+the string starts with substring.
+
+filename = input('Enter the filename: ')
+if filename.endswith('.txt'):
+        print('That is the name of a text file.')
+    elif filename.endswith('.py'):
+        print('That is the name of a Python source file.')
+    elif filename.endswith('.doc'):
+        print('That is the name of a word processing document.')
+    else:
+        print('Unknown file type.')
+        
+
+The find method searches for a specified substring within a string. The method returns
+the lowest index of the substring, if it is found. If the substring is not found, the method
+returns −1.
+
+string = 'Four score and seven years ago'
+position = string.find('seven')
+if position != −1:
+    print('The word "seven" was found at index', position)
+else:
+    print('The word "seven" was not found.')
+
+The replace method returns a copy of a string, where every occurrence of a specified
+substring has been replaced with another string
+
+string = 'Four score and seven years ago'
+new_string = string.replace('years', 'days')
+print(new_string)
+
+Validating the Characters in a Password
+At the university, passwords for the campus computer system must meet the following
+requirements:
+• The password must be at least seven characters long.
+• It must contain at least one uppercase letter.
+• It must contain at least one lowercase letter.
+• It must contain at least one numeric digit.
+When a student sets up his or her password, the password must be validated to ensure it
+meets these requirements. You have been asked to write the code that performs this validation.
+You decide to write a function named valid_password that accepts the password
+as an argument and returns either true or false, to indicate whether it is valid.
+
+login.py
+def valid_password(password):
+    # Set the Boolean variables to false.
+    correct_length = False
+    has_uppercase = False
+    has_lowercase = False
+    has_digit = False
+
+    # Begin the validation. Start by testing the # password's length.
+    if len(password) >= 7:
+        correct_length = True
+
+    # Test each character and set the
+    # appropriate flag when a required character is found.
+    for ch in password:
+        if ch.isupper():
+            has_uppercase = True
+   
+        if ch.islower():
+            has_lowercase = True
+    
+        if ch.isdigit():
+            has_digit = True
+    # Determine whether all of the requirements are met. If they are, set is_valid to true.
+    # Otherwise, set is_valid to false.
+    if correct_length and has_uppercase and has_lowercase and has_digit:
+        is_valid = True
+    else:
+        is_valid = False
+
+    # Return the is_valid variable.
+    return is_valid
+
+import login
+
+def main():
+    # Get a password from the user.
+    password = input('Enter your password: ')
+
+    # Validate the password.
+    while not login.valid_password(password):
+        print('That password is not valid.')
+        password = input('Enter your password: ')
+
+    print('That is a valid password.')
+
+# Call the main function.
+main()
+
+Splitting a String
+Strings in Python have a method named split that returns a list containing the words in
+the string.
+
+# This program demonstrates the split method.
+
+def main():
+    # Create a string with multiple words.
+    my_string = 'One two three four'
+
+    # Split the string.
+    word_list = my_string.split()
+
+    # Print the list of words.
+    print(word_list)
+
+# Call the main function.
+main()
+
+By default, the split method uses spaces as separators (that is, it returns a list of the words
+in the string that are separated by spaces). You can specify a different separator by passing
+it as an argument to the split method
+
+date_string = '11/26/2018'
+date_list = date_string.split('/')

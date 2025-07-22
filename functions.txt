@@ -1,0 +1,822 @@
+A function is a group of statements that exist within a program for the
+purpose of performing a specific task.
+When using functions in a program, you generally isolate each task within the program in
+its own function. For example, a realistic pay calculating program might have the following
+functions:
+• A function that gets the employee’s hourly pay rate
+• A function that gets the number of hours worked
+• A function that calculates the employee’s gross pay
+• A function that calculates the overtime pay
+• A function that calculates the withholdings for taxes and benefits
+• A function that calculates the net pay
+• A function that prints the paycheck
+A program that has been written with each task in its own function is called a modularized program.
+
+Benefits of Modularizing a Program with Functions
+A program benefits in the following ways when it is broken down into functions:
+Simpler Code
+A program’s code tends to be simpler and easier to understand when it is broken down into functions. Several small functions are much easier to read than one long sequence of statements.
+Code Reuse
+Functions also reduce the duplication of code within a program. If a specific operation is performed in several places in a program, a function can be written once to perform that operation, then be executed any time it is needed. This benefit of using functions is known as code reuse because you are writing the code to perform a task once, then reusing it each
+time you need to perform the task.
+Better Testing
+When each task within a program is contained in its own function, testing and debugging becomes simpler. Programmers can test each function in a program individually, to determine whether it correctly performs its operation. This makes it easier to isolate and fix errors.
+Faster Development
+Suppose a programmer or a team of programmers is developing multiple programs. They discover that each of the programs perform several common tasks, such as asking for a username and a password, displaying the current time, and so on. It doesn’t make sense to write the code for these tasks multiple times. Instead, functions can be written for the commonly
+needed tasks, and those functions can be incorporated into each program that needs them.
+Easier Facilitation of Teamwork
+Functions also make it easier for programmers to work in teams. When a program is developed as a set of functions that each performs an individual task, then different programmers can be assigned the job of writing different functions.
+
+Function Names
+Python requires that you follow the same rules that you follow when naming variables,
+which we recap here:
+• You cannot use one of Python’s key words as a function name. 
+• A function name cannot contain spaces.
+• The first character must be one of the letters a through z, A through Z, or an underscore character (_).
+• After the first character you may use the letters a through z or A through Z, the digits 0 through 9, or underscores.
+• Uppercase and lowercase characters are distinct.
+
+Defining and Calling a Function
+
+def function_name():
+    statement
+    statement
+
+def message():
+    print('I am Arthur,')
+    print('King of the Britons.')
+
+Calling a Function
+message()
+
+# This program has two functions. First we
+# define the main function.
+def main():
+    print('I have a message for you.')
+    message()
+    print('Goodbye!')
+
+# Next we define the message function.
+def message():
+    print('I am Arthur,')
+    print('King of the Britons.')
+
+Call the main function.
+main()
+
+This program displays step-by-step instructions
+# for disassembling an Acme dryer.
+# The main function performs the program's main logic.
+def main():
+    # Display the start-up message.
+    startup_message()
+    input('Press Enter to see Step 1.')
+    # Display step 1.
+    step1()
+    input('Press Enter to see Step 2.')
+    # Display step 2.
+    step2()
+    input('Press Enter to see Step 3.')
+    # Display step 3.
+    step3()
+    input('Press Enter to see Step 4.')
+    # Display step 4.
+    step4()
+
+# The startup_message function displays the
+# program's initial message on the screen.
+def startup_message():
+    print('This program tells you how to')
+    print('disassemble an ACME laundry dryer.')
+    print('There are 4 steps in the process.')
+    print()
+
+# The step1 function displays the instructions
+# for step 1.
+def step1():
+    print('Step 1: Unplug the dryer and')
+    print('move it away from the wall.')
+    print()
+
+# The step2 function displays the instruction for step 2.
+def step2():
+    print('Step 2: Remove the six screws')
+    print('from the back of the dryer.')
+    print()
+
+# The step3 function displays the instructions for step 3.
+def step3():
+    print('Step 3: Remove the back panel')
+    print('from the dryer.')
+    print()
+
+# The step4 function displays the instructions for step 4.
+def step4():
+    print('Step 4: Pull the top of the')
+    print('dryer straight up.')
+
+# Call the main function to begin the program.
+main()
+
+A local variable is created inside a function and cannot be accessed by
+statements that are outside the function. Different functions can have
+local variables with the same names because the functions cannot see
+each other's local variables.
+
+def main():
+    get_name()
+    print('Hello', name) # This causes an error!
+
+# Definition of the get_name function.
+def get_name():
+    name = input('Enter your name: ')
+
+# Call the main function.
+main()
+
+Scope and Local Variables
+A variable’s scope is the part of a program in which the variable may be accessed. A variable is visible only to statements in the variable’s scope. A local variable’s scope is the function in which the variable is created.
+
+# This program demonstrates two functions that
+# have local variables with the same name.
+
+def main():
+    # Call the texas function.
+    texas()
+    # Call the california function.
+    california()
+
+# Definition of the texas function. It creates
+# a local variable named birds.
+def texas():
+    birds = 5000
+    print('texas has', birds, 'birds.')
+
+# Definition of the california function. It also
+# creates a local variable named birds.
+def california():
+    birds = 8000
+    print('california has', birds, 'birds.')
+
+# Call the main function.
+main()
+
+Passing Arguments to Functions
+An argument is any piece of data that is passed into a function when the function is called. A parameter is a variable that receives an argument that is passed into a function.
+
+# This program demonstrates an argument being
+# passed to a function.
+
+def main():
+    value = 5
+    show_double(value)
+
+# The show_double function accepts an argument
+# and displays double its value.
+def show_double(number):
+    result = number * 2
+    print(result)
+
+# Call the main function.
+main()
+
+Parameter Variable Scope
+A variable is visible only to statements inside the variable’s
+scope. A parameter variable’s scope is the function in which the parameter is used.
+All of the statements inside the function can access the parameter variable, but no statement outside the function can access it.
+
+# This program converts cups to fluid ounces.
+
+def main():
+    # display the intro screen.
+    intro()
+    # Get the number of cups.
+    cups_needed = int(input('Enter the number of cups: '))
+    # Convert the cups to ounces.
+    cups_to_ounces(cups_needed)
+
+# The intro function displays an introductory screen.
+def intro():
+    print('This program converts measurements')
+    print('in cups to fluid ounces. For your')
+    print('reference the formula is:')
+    print(' 1 cup = 8 fluid ounces')
+    print()
+
+# The cups_to_ounces function accepts a number of
+# cups and displays the equivalent number of ounces.
+def cups_to_ounces(cups):
+    ounces = cups * 8
+    print('That converts to', ounces, 'ounces.')
+
+# Call the main function.
+main()
+
+Passing Multiple Arguments
+These arguments are passed by position to the corresponding parameter variables in the function. In other words, the first argument is passed to the first parameter variable, and the second argument is passed to the second parameter variable.
+
+# This program demonstrates a function that accepts
+# two arguments.
+
+def main():
+    print('The sum of 12 and 45 is')
+    show_sum(12, 45)
+
+# The show_sum function accepts two arguments
+# and displays their sum.
+def show_sum(num1, num2):
+    result = num1 + num2
+    print(result)
+
+# Call the main function.
+main()
+
+# This program demonstrates passing two string
+# arguments to a function.
+
+def main():
+    first_name = input('Enter your first name: ')
+    last_name = input('Enter your last name: ')
+    print('Your name reversed is')
+    reverse_name(first_name, last_name)
+
+def reverse_name(first, last):
+    print(last, first)
+
+# Call the main function.
+main()
+
+# This program demonstrates what happens when you
+# change the value of a parameter
+
+def main():
+    value = 99
+    print('The value is', value)
+    change_me(value)
+    print('Back in main the value is', value)
+
+def change_me(arg):
+    print('I am changing the value.')
+    arg = 0
+    print('Now the value is', arg)
+
+# Call the main function.
+main()
+
+Keyword Arguments
+allows you to write an argument in the following format, to specify which parameter variable the argument should be passed to:
+parameter_name=value
+
+In this format, parameter_name is the name of a parameter variable, and value is the value being passed to that parameter. An argument that is written in accordance with this syntax is known as a keyword argument.
+
+# This program demonstrates keyword arguments.
+
+def main():
+# Show the amount of simple interest, using 0.01 as
+# interest rate per period, 10 as the number of periods,
+# and $10,000 as the principal.
+    show_interest(rate=0.01, periods=10, principal=10000.0)
+
+# The show_interest function displays the amount of
+# simple interest for a given principal, interest rate
+# per period, and number of periods.
+
+def show_interest(principal, rate, periods):
+    interest = principal * rate * periods
+    print('The simple interest will be $', format(interest, ',.2f'), sep='')
+
+# Call the main function.
+main()
+
+Mixing Keyword Arguments with Positional Arguments
+It is possible to mix positional arguments and keyword arguments in a function call, but the positional arguments must appear first, followed by the keyword arguments
+
+show_interest(10000.0, rate=0.01, periods=10)
+show_interest(1000.0, rate=0.01, 10)
+
+Global Variables and Global Constants
+A global variable is accessible to all the functions in a program file.
+When a variable is created by an assignment statement
+that is written outside all the functions in a program file, the variable is global. A global variable can be accessed by any statement in the program file, including the statements in any function.
+
+
+# Create a global variable.
+my_value = 10
+# The show_value function prints
+# the value of the global variable.
+def show_value():
+    print(my_value)
+
+# Call the show_value function.
+show_value()
+
+An additional step is required if you want a statement in a function to assign a value to a global variable. In the function, you must declare the global variable,
+
+# Create a global variable.
+number = 0
+
+def main():
+    global number
+    number = int(input('Enter a number: '))
+    show_number()
+
+def show_number():
+    print('The number you entered is', number)
+
+# Call the main function.
+main()
+
+Most programmers agree that you should restrict the use of global variables, or not use them at all. The reasons are as follows:
+• Global variables make debugging difficult. Any statement in a program file can change the value of a global variable. If you find that the wrong value is being stored in a global variable, you have to track down every statement that accesses it to determine
+where the bad value is coming from. In a program with thousands of lines of code, this can be difficult.
+• Functions that use global variables are usually dependent on those variables. If you want to use such a function in a different program, most likely you will have to redesign it so it does not rely on the global variable.
+• Global variables make a program hard to understand. A global variable can be modified by any statement in the program. If you are to understand any part of the program that uses a global variable, you have to be aware of all the other parts of the
+program that access the global variable. In most cases, you should create variables locally and pass them as arguments to the functions that need to access them.
+
+Global Constants
+A global constant is a global name that references a value that cannot
+be changed
+
+Marilyn works for Integrated Systems, Inc., a software company that has a reputation for
+providing excellent fringe benefits. One of their benefits is a quarterly bonus that is paid
+to all employees. Another benefit is a retirement plan for each employee. The company
+contributes 5 percent of each employee’s gross pay and bonuses to their retirement plans.
+Marilyn wants to write a program that will calculate the company’s contribution to an
+employee’s retirement account for a year. She wants the program to show the amount of
+contribution for the employee’s gross pay and for the bonuses separately. Here is an algorithm
+for the program:
+Get the employee's annual gross pay.
+Get the amount of bonuses paid to the employee.
+Calculate and display the contribution for the gross pay.
+Calculate and display the contribution for the bonuses
+
+retirement.py
+# The following is used as a global constant
+# the contribution rate.
+CONTRIBUTION_RATE = 0.05
+
+def main():
+    gross_pay = float(input('Enter the gross pay: '))
+    bonus = float(input('Enter the amount of bonuses: '))
+    show_pay_contrib(gross_pay)
+    show_bonus_contrib(bonus)
+
+# The show_pay_contrib function accepts the gross
+# pay as an argument and displays the retirement
+# contribution for that amount of pay.
+def show_pay_contrib(gross):
+    contrib = gross * CONTRIBUTION_RATE
+    print('Contribution for gross pay: $', format(contrib, ',.2f'), sep='')
+
+# The show_bonus_contrib function accepts the
+# bonus amount as an argument and displays the
+# retirement contribution for that amount of pay.
+def show_bonus_contrib(bonus):
+    contrib = bonus * CONTRIBUTION_RATE
+    print('Contribution for bonuses: $', format(contrib, ',.2f'), sep='')
+
+# Call the main function.
+main()
+
+
+
+Generating Random Numbers
+Python provides several library functions for working with random numbers. These functions
+are stored in a module named random in the standard library. To use any of these
+functions, you first need to write this import statement at the top of your program:
+import random
+
+The first random-number generating function that we will discuss is named randint.
+Because the randint function is in the random module, we will need to use dot notation
+to refer to it in our program. In dot notation, the function’s name is random.randint. On
+the left side of the dot (period) is the name of the module, and on the right side of the dot
+is the name of the function.
+The following statement shows an example of how you might call the randint function:
+number = random.randint (1, 100)
+
+random_numbers.py
+# This program displays a random number
+# in the range of 1 through 10.
+import random
+
+def main():
+    # Get a random number.
+    number = random.randint(1, 10)
+    # Display the number.
+    print('The number is', number)
+
+# Call the main function.
+main()
+
+# This program displays five random
+# numbers in the range of 1 through 100.
+import random
+
+def main():
+    for count in range(5):
+    # Get a random number.
+    number = random.randint(1, 100)
+
+    # Display the number.
+    print(number)
+
+# Call the main function.
+main()
+
+# This program displays five random
+# numbers in the range of 1 through 100.
+import random
+
+def main():
+    for count in range(5):
+    print(random.randint(1, 100))
+
+# Call the main function.
+main()
+
+dice.py
+# This program the rolling of dice.
+import random
+# Constants for the minimum and maximum random numbers
+MIN = 1
+MAX = 6
+
+def main():
+    # Create a variable to control the loop.
+    again = 'y'
+
+    # Simulate rolling the dice.
+    while again == 'y' or again == 'Y':
+        print('Rolling the dice . . .')
+        print('Their values are:')
+        print(random.randint(MIN, MAX))
+        print(random.randint(MIN, MAX))
+
+        # Do another roll of the dice?
+        again = input('Roll them again? (y = yes): ')
+
+# Call the main function.
+main()
+
+The randrange, random, and uniform Functions
+
+In addition to the randint function, you might find the randrange, random,
+and uniform functions useful.
+The randrange function
+takes the same arguments as the range function. The difference is that the randrange
+function does not return a list of values. Instead, it returns a randomly selected value from
+a sequence of values. For example, the following statement assigns a random number in the
+range of 0 through 9 to the number variable:
+number = random.randrange(10)
+
+The following statement specifies both a starting value and
+an ending limit for the sequence:
+number = random.randrange(5,10)
+When this statement executes, a random number in the range of 5 through 9 will be assigned
+to number. The following statement specifies a starting value, an ending limit, and a step
+value:
+number = random.randrange(0, 101, 10)
+In this statement the randrange function returns a randomly selected value from the
+following sequence of numbers:
+[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+The random
+function, however, returns a random floating-point number. You do not pass any arguments
+to the random function. When you call it, it returns a random floating point number in the
+range of 0.0 up to 1.0 (but not including 1.0). Here is an example:
+number = random.random()
+
+The uniform function also returns a random floating-point number, but allows you to
+specify the range of values to select from. Here is an example:
+number = random.uniform(1.0, 10.0)
+
+A value-returning function is a function that returns a value back to the
+part of the program that called it.
+
+def function_name():
+    statement
+    statement
+    etc.
+    return expression
+# This program uses the return value of a function.
+
+def main():
+    # Get the user's age.
+    first_age = int(input('Enter your age: '))
+
+    # Get the user's best friend's age.
+    second_age = int(input("Enter your best friend's age: "))
+
+    # Get the sum of both ages.
+    total = sum(first_age, second_age)
+    # Display the total age.
+    print('Together you are', total, 'years old.')
+
+# The sum function accepts two numeric arguments and
+# returns the sum of those arguments.
+def sum(num1, num2):
+    result = num1 + num2
+    return result
+
+# Call the main function.
+main()
+
+Value-returning functions provide many of the same benefits as void functions: they simplify
+code, reduce duplication, enhance your ability to test code, increase the speed of
+development, and ease the facilitation of teamwork
+
+# This program calculates a retail item's
+# sale price.
+
+# DISCOUNT_PERCENTAGE is used as a global
+# constant for the discount percentage.
+DISCOUNT_PERCENTAGE = 0.20
+
+# The main function.
+def main():
+# Get the item's regular price.
+    reg_price = get_regular_price()
+
+# Calculate the sale price.
+sale_price = reg_price - discount(reg_price)
+
+# Display the sale price.
+print('The sale price is $', format(sale_price, ',.2f'), sep='')
+
+# The get_regular_price function prompts the
+# user to enter an item's regular price and it
+# returns that value.
+def get_regular_price():
+    price = float(input("Enter the item's regular price: "))
+    return price
+
+# The discount function accepts an item's price
+# as an argument and returns the amount of the
+# discount, specified by DISCOUNT_PERCENTAGE.
+def discount(price):
+    return price * DISCOUNT_PERCENTAGE
+
+# Call the main function.
+main()
+
+Modularizing with Functions
+Hal owns a business named Make Your Own Music, which sells guitars, drums, banjos, synthesizers, and many other musical instruments. Hal’s sales staff works strictly on commission.
+At the end of the month, each salesperson’s commission is calculated according to Table 5-1.
+Table 5-1 Sales commission rates
+Sales This Month Commission     Rate
+Less than $10,000               10%
+$10,000–14,999                  12%
+$15,000–17,999                  14%
+$18,000–21,999                  16%
+$22,000 or more                 18%
+
+For example, a salesperson with $16,000 in monthly sales will earn a 14 percent commission ($2,240). Another salesperson with $18,000 in monthly sales will earn a 16 percent commission ($2,880). A person with $30,000 in sales will earn an 18 percent commission ($5,400).
+Because the staff gets paid once per month, Hal allows each employee to take up to $2,000 per month in advance. When sales commissions are calculated, the amount of each employee’s advanced pay is subtracted from the commission. If any salesperson’s commissions are less than the amount of their advance, they must reimburse Hal for the difference.
+To calculate a salesperson’s monthly pay, Hal uses the following formula: pay = sales * commission rate - advanced pay
+
+# This program calculates a salesperson's pay
+# at Make Your Own Music.
+def main():
+# Get the amount of sales.
+    sales = get_sales()
+
+    # Get the amount of advanced pay.
+    advanced_pay = get_advanced_pay()
+
+    # Determine the commission rate.
+    comm_rate = determine_comm_rate(sales)
+
+    # Calculate the pay.
+    pay = sales * comm_rate − advanced_pay
+
+    # Display the amount of pay.
+    print('The pay is $', format(pay, ',.2f'), sep='')
+
+    # Determine whether the pay is negative.
+    if pay < 0:
+    print('The Salesperson must reimburse')
+    print('the company.')
+
+# The get_sales function gets a salesperson's
+# monthly sales from the user and returns that value.
+def get_sales():
+    # Get the amount of monthly sales.
+    monthly_sales = float(input('Enter the monthly sales: '))
+
+    # Return the amount entered.
+    return monthly_sales
+
+# The get_advanced_pay function gets the amount of
+# advanced pay given to the salesperson and returns that amount.
+def get_advanced_pay():
+    # Get the amount of advanced pay.
+    print('Enter the amount of advanced pay, or')
+    print('enter 0 if no advanced pay was given.')
+    advanced = float(input('Advanced pay: '))
+
+    # Return the amount entered.
+    return advanced
+
+# The determine_comm_rate function accepts the
+# amount of sales as an argument and returns the applicable commission rate.
+def determine_comm_rate(sales):
+    # Determine the commission rate.
+    if sales < 10000.00:
+        rate = 0.10
+    elif sales >= 10000 and sales <= 14999.99:
+        rate = 0.12
+    elif sales >= 15000 and sales <= 17999.99:
+        rate = 0.14
+    elif sales >= 18000 and sales <= 21999.99:
+        rate = 0.16
+    else:
+        rate = 0.18
+
+    # Return the commission rate.
+    return rate
+
+Returning Strings
+
+def get_name():
+# Get the user's name.
+    name = input('Enter your name: ')
+    # Return the name.
+    return name
+
+Returning Boolean Values
+Python allows you to write Boolean functions, which return either True or False.
+
+def main():
+    number = int(input('Enter a number: '))
+    if is_even(number):
+        print('The number is even.')
+    else:
+        print('The number is odd.')
+
+def is_even(number):
+# Determine whether number is even. If it is, set status to true. Otherwise, set status to false.
+    if (number % 2) == 0:
+      status = True
+    else:
+     status = False
+    # Return the value of the status variable.
+    return status
+
+main()
+
+Returning Multiple Values
+You can specify multiple expressions separated by commas after the return statement, as shown in this general format:
+return expression1, expression2, etc.
+
+
+
+When you call this function in an assignment statement, you need to use two variables on the left side of the = operator. Here is an example: 
+first_name, last_name = get_name()
+
+def main():
+    first_name, last_name = get_name()
+    print('first name is: ', first )
+    print('last name is: ', last )
+
+def get_name():
+    # Get the user's first and last names.
+    first = input('Enter your first name: ')
+    last = input('Enter your last name: ')
+    # Return both names.
+    return first, last
+
+main()
+
+
+Standard Library Functions and the import Statement
+Python, as well as most programming languages, comes with a standard library of functions that have already been written for you. These functions, known as library functions, make a programmer’s job easier because they perform many of the tasks that programmers commonly need to perform
+
+The Python standard library’s math module contains numerous functions
+that can be used in mathematical calculations
+
+# This program demonstrates the sqrt function.
+import math
+
+def main():
+# Get a number.
+    number = float(input('Enter a number: '))
+
+# Get the square root of the number.
+    square_root = math.sqrt(number)
+
+# Display the square root.
+    print('The square root of', number, '0 is', square_root)
+
+# Call the main function.
+main()
+
+# This program calculates the length of a right triangle's hypotenuse.
+
+import math
+
+def main():
+# Get the length of the triangle's two sides.
+    a = float(input('Enter the length of side A: '))
+    b = float(input('Enter the length of side B: '))
+
+    # Calculate the length of the hypotenuse.
+    c = math.hypot(a, b)
+
+    # Display the length of the hypotenuse.
+    print('The length of the hypotenuse is', c)
+
+# Call the main function.
+main()
+
+Storing Functions in Modules
+A module is a file that contains Python code. Large programs are easier to debug and maintain when they are divided into modules.
+A module is simply a file that contains Python code. When you break a program into modules, each module should contain functions that perform related tasks.
+
+Modules also make it easier to reuse the same code in more than one program. If you have written a set of functions that are needed in several different programs, you can place those functions in a module
+
+# The circle module has functions that perform
+# calculations related to circles.
+import math
+
+# The area function accepts a circle's radius as an
+# argument and returns the area of the circle.
+def area(radius):
+    return math.pi * radius**2
+
+# The circumference function accepts a circle's
+# radius and returns the circle's circumference.
+def circumference(radius):
+    return 2 * math.pi * radius
+
+
+# The rectangle module has functions that perform
+# calculations related to rectangles.
+
+# The area function accepts a rectangle's width and
+# length as arguments and returns the rectangle's area.
+def area(width, length):
+    return width * length
+
+# The perimeter function accepts a rectangle's width
+# and length as arguments and returns the rectangle's perimeter.
+def perimeter(width, length):
+    return 2 * (width + length)
+
+# This program allows the user to choose various
+# geometry calculations from a menu. This program
+# imports the circle and rectangle modules.
+geometry.py
+import circle
+import rectangle
+
+# Constants for the menu choices
+AREA_CIRCLE_CHOICE = 1
+CIRCUMFERENCE_CHOICE = 2
+AREA_RECTANGLE_CHOICE = 3
+PERIMETER_RECTANGLE_CHOICE = 4
+QUIT_CHOICE = 5
+
+# The main function.
+def main():
+    # The choice variable controls the loop
+    # and holds the user's menu choice.
+    choice = 0
+
+    while choice != QUIT_CHOICE:
+    # display the menu.
+    display_menu()
+
+    # Get the user's choice.
+    choice = int(input('Enter your choice: '))
+    # Perform the selected action.
+    if choice == AREA_CIRCLE_CHOICE:
+        radius = float(input("Enter the circle's radius: "))
+        print('The area is', circle.area(radius))
+    elif choice == CIRCUMFERENCE_CHOICE:
+        radius = float(input("Enter the circle's radius: "))
+        print('The circumference is',
+        circle.circumference(radius))
+    elif choice == AREA_RECTANGLE_CHOICE:
+        width = float(input("Enter the rectangle's width: "))
+        length = float(input("Enter the rectangle's length: "))
+        print('The area is', rectangle.area(width, length))
+    elif choice == PERIMETER_RECTANGLE_CHOICE:
+        width = float(input("Enter the rectangle's width: "))
+        length = float(input("Enter the rectangle's length: "))
+        print('The perimeter is',
+        rectangle.perimeter(width, length))
+    elif choice == QUIT_CHOICE:
+        print('Exiting the program. . .')
+    else:
+        print('Error: invalid selection.')
+    
+# The display_menu function displays a menu.
+def display_menu():
+    print(' MENU')
+    print('1) Area of a circle')
+    print('2) Circumference of a circle')
+    print('3) Area of a rectangle')
+    print('4) Perimeter of a rectangle')
+    print('5) Quit')
+
+# Call the main function.
+main()

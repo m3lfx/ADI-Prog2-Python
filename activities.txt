@@ -1,0 +1,43 @@
+machine problem 1
+The area of a rectangle is the rectangle’s length times its width. Write a program that asks 
+for the length and width of two rectangles. The program should tell the user which rectan
+gle has the greater area, or if the areas are the same.
+
+machine problem 2
+Quarter of the Year
+ Write a program that asks the user for a month as a number between 1 and 12. The 
+program should display a message indicating whether the month is in the first quarter, 
+the second quarter, the third quarter, or the fourth quarter of the year. Following are the 
+guidelines:
+ •	If the user enters	either	1,	2, or 3, the month	is in the first	quarter.
+ •	If the user enters	a number between 4 and 6, the month is in the second quarter.
+ •	If the number is either 7, 8, or 9, the month is in the third quarter.
+ •	If the month is between 10	and	12,	the	month is in	the	fourth quarter.
+ •	If the number is not between 1 and	12,	the	program	should display an error.
+
+machine problem 3
+ Mass and Weight
+ Scientists measure an object’s mass in kilograms and its weight in newtons. If you know 
+the amount of mass of an object in kilograms, you can calculate its weight in newtons with 
+the following formula:
+ weight =  mass x 9.8
+ Write a program that asks the user to enter an object’s mass, then calculates its weight. If 
+the object weighs more than 500 newtons, display a message indicating that it is too heavy. 
+If the object weighs less than 100 newtons, display a message indicating that it is too light
+
+machine problem 4
+Book Club Points
+Serendipity Booksellers has a book club that awards points to its customers based on the 
+number of books purchased each month. The points are awarded as follows:
+ •	If a customer purchases	0 books, he	or she earns 0 points.
+ •	If a customer purchases 2 books, he or she earns 5 points.
+ •	If a customer purchases 4 books, he or she earns 15 points.
+ •	If a customer purchases 6 books, he or she earns 30 points.
+ •	If a customer purchases 8 or more books, he or she earns 60 points.
+ Write a program that asks the user to enter the number of books that he or she has pur
+chased this month, then displays the number of points awarded.
+
+machine problem 5
+Calories Burned
+ Running on a particular treadmill you burn 4.2 calories per minute. Write a program that 
+uses a loop to display the number of calories burned after 10, 15, 20, 25, and 30 minutes.

@@ -1,0 +1,633 @@
+A graphical user interface allows the user to interact with the operating
+system and other programs using graphical elements such as icons, buttons,
+and dialog boxes.
+
+Using the tkinter Module
+Python does not have GUI programming features built into the language itself. However, it
+comes with a module named tkinter that allows you to create simple GUI programs. The
+name “tkinter” is short for “Tk interface.” It is named this because it provides a way for
+Python programmers to use a GUI library named Tk. Many other programming languages
+use the Tk library as well.
+
+Widget Description
+Button A button that can cause an action to occur when it is clicked.
+Canvas A rectangular area that can be used to display graphics.
+Checkbutton A button that may be in either the “on” or “off” position.
+Entry An area in which the user may type a single line of input from the keyboard.
+Frame A container that can hold other widgets.
+Label An area that displays one line of text or an image.
+Listbox A list from which the user may select an item
+Menu A list of menu choices that are displayed when the user clicks a Menubutton
+widget.
+Menubutton A menu that is displayed on the screen and may be clicked by the user
+Message Displays multiple lines of text.
+Radiobutton A widget that can be either selected or deselected. Radiobutton widgets
+usually appear in groups and allow the user to select one of several options.
+Scale A widget that allows the user to select a value by moving a slider along a
+track.
+Scrollbar Can be used with some other types of widgets to provide scrolling ability.
+Text A widget that allows the user to enter multiple lines of text input.
+Toplevel A container, like a Frame, but displayed in its own window.
+
+# This program displays an empty window.
+
+import tkinter
+
+def main():
+# Create the main window widget.
+    main_window = tkinter.Tk()
+
+    # Enter the tkinter main loop.
+    tkinter.mainloop()
+
+#  Call the main function.
+main()
+
+# This program displays an empty window.
+
+import tkinter
+class MyGUI:
+    def __init__(self):
+        # Create the main window widget.
+        self.main_window = tkinter.Tk()
+
+    # Enter the tkinter main loop.
+        tkinter.mainloop()
+
+# Create an instance of the MyGUI class.
+my_gui = MyGUI()
+
+You use the Label widget to display text in a window
+(hello_world.py)
+
+# This program displays a label with text.
+
+import tkinter
+class MyGUI:
+    def __init__(self):
+        # Create the main window widget.
+        self.main_window = tkinter.Tk()
+
+        # Create a Label widget containing the
+        # text 'Hello World!'
+        self.label = tkinter.Label(self.main_window,
+        text='Hello World!')
+
+        # Call the Label widget's pack method.
+        self.label.pack()
+
+        # Enter the tkinter main loop.
+        tkinter.mainloop()
+
+# Create an instance of the MyGUI class.
+my_gui = MyGUI()
+
+hello_world3.py
+# This program uses the side='left' argument with
+# the pack method to change the layout of the widgets.
+
+import tkinter
+
+class MyGUI:
+    def __init__(self):
+        # Create the main window widget.
+        self.main_window = tkinter.Tk()
+
+        # Create two Label widgets.
+        self.label1 = tkinter.Label(self.main_window,
+        text='Hello World!')
+        self.label2 = tkinter.Label(self.main_window,
+        text='This is my GUI program.')
+
+        # Call both Label widgets' pack method.
+        self.label1.pack(side='left')
+        self.label2.pack(side='left')
+
+        #  Enter the tkinter main loop.
+        tkinter.mainloop()
+
+# Create an instance of the MyGUI class.
+my_gui = MyGUI()
+
+A Frame is a container that can hold other widgets. You can use Frames to
+organize the widgets in a window
+# This program creates labels in two different frames.
+
+import tkinter
+
+class MyGUI:
+    def __init__(self):
+        # Create the main window widget.
+        self.main_window = tkinter.Tk()
+
+        # Create two frames, one for the top of the
+        # window, and one for the bottom.
+        self.top_frame = tkinter.Frame(self.main_window)
+        self.bottom_frame = tkinter.Frame(self.main_window)
+
+        # Create three Label widgets for the top frame.
+        self.label1 = tkinter.Label(self.top_frame,
+        text='Winken')
+        self.label2 = tkinter.Label(self.top_frame,
+        text='Blinken')
+        self.label3 = tkinter.Label(self.top_frame,
+        text='Nod')
+
+        # Pack the labels that are in the top frame.
+        # Use the side='top' argument to stack them
+        # one on top of the other.
+        self.label1.pack(side='top')
+        self.label2.pack(side='top')
+        self.label3.pack(side='top')
+
+        # Create three Label widgets for the
+        # bottom frame.
+        self.label4 = tkinter.Label(self.bottom_frame, text='Winken')
+        self.label5 = tkinter.Label(self.bottom_frame, text='Blinken')
+        self.label6 = tkinter.Label(self.bottom_frame, text='Nod')
+
+        # Pack the labels that are in the bottom frame.
+        # Use the side='left' argument to arrange them
+        # horizontally from the left of the frame.
+        self.label4.pack(side='left')
+        self.label5.pack(side='left')
+        self.label6.pack(side='left')
+
+        # Yes, we have to pack the frames too!
+        self.top_frame.pack()
+        self.bottom_frame.pack()
+
+        # Enter the tkinter main loop.
+        tkinter.mainloop()
+
+# Create an instance of the MyGUI class.
+my_gui = MyGUI()
+
+Button Widgets and Info Dialog Boxes
+A Button is a widget that the user can click to cause an action to take place. When you create
+a Button widget you can specify the text that is to appear on the face of the button and
+the name of a callback function. A callback function is a function or method that executes
+when the user clicks the button.
+
+A callback function is also known as an event handler because it handles the
+event that occurs when the user clicks the button.
+
+We use a function named showinfo, which is in the
+tkinter.messagebox module, to display the info dialog box. (To use the showinfo function,
+you will need to import the tkinter.messagebox module.) This is the general format
+of the showinfo function call:
+tkinter.messagebox.showinfo(title, message)
+In the general format, title is a string that is displayed in the dialog box’s title bar, and
+message is an informational string that is displayed in the main part of the dialog box.
+
+button_demo.py
+# This program demonstrates a Button widget.
+2 # When the user clicks the Button, an
+3 # info dialog box is displayed.
+
+import tkinter
+import tkinter.messagebox
+
+class MyGUI:
+    def __init__(self):
+        # Create the main window widget.
+        self.main_window = tkinter.Tk()
+
+        # Create a Button widget. The text 'Click Me!' should appear on the face of the Button. The
+        # do_something method should be executed when the user clicks the Button.
+        self.my_button = tkinter.Button(self.main_window,
+        text='Click Me!',
+        command=self.do_something)
+
+        # Pack the Button.
+        self.my_button.pack()
+
+        # Enter the tkinter main loop.
+        tkinter.mainloop()
+
+    # The do_something method is a callback function for the Button widget.
+
+    def do_something(self):
+        #  Display an info dialog box.
+        tkinter.messagebox.showinfo('Response', 'Thanks for clicking the button.')
+
+    # Create an instance of the MyGUI class.
+my_gui = MyGUI()
+
+Creating a Quit Button
+GUI programs usually have a Quit button (or an Exit button) that closes the program
+when the user clicks it. To create a Quit button in a Python program, you simply create a
+Button widget that calls the root widget’s destroy method as a callback function.
+
+quit_button.py
+# This program has a Quit button that calls
+# the Tk class's destroy method when clicked.
+
+import tkinter
+import tkinter.messagebox
+
+class MyGUI:
+    def __init__(self):
+        # Create the main window widget.
+        self.main_window = tkinter.Tk()
+        self.main_window.eval('tk::PlaceWindow . center')
+
+        # Create a Button widget. The text 'Click Me!' should appear on the face of the Button. The
+        # do_something method should be executed when the user clicks the Button.
+        self.my_button = tkinter.Button(self.main_window, text='Click Me!', command=self.do_something)
+
+        # Create a Quit button. When this button is clicked the root widget's destroy method is called.
+        # (The main_window variable references the root widget, so the callback function is self.main_window.destroy.)
+        self.quit_button = tkinter.Button(self.main_window, text='Quit',
+        command=self.main_window.destroy)
+
+
+        # Pack the Buttons.
+        self.my_button.pack()
+        self.quit_button.pack()
+
+        # Enter the tkinter main loop.
+        tkinter.mainloop()
+
+    # The do_something method is a callback function
+    # for the Button widget.
+
+    def do_something(self):
+        # Display an info dialog box.
+        tkinter.messagebox.showinfo('Response', 'Thanks for clicking the button.')
+
+# Create an instance of the MyGUI class.
+my_gui = MyGUI()
+
+Getting Input with the Entry Widget
+An Entry widget is a rectangular area that the user can type input into. You
+use the Entry widget’s get method to retrieve the data that has been typed
+into the widget.
+An Entry widget is a rectangular area that the user can type text into. Entry widgets are
+used to gather input in a GUI program. Typically, a program will have one or more Entry widgets in a window, along with a button that the user clicks to submit the data that he or
+she has typed into the Entry widgets. The button’s callback function retrieves data from
+the window’s Entry widgets and processes it.
+
+kilo_converter.py
+# This program converts distances in kilometers
+# to miles. The result is displayed in an info dialog box.
+
+import tkinter
+import tkinter.messagebox
+class KiloConverterGUI:
+    def __init__(self):
+
+        # Create the main window.
+        self.main_window = tkinter.Tk()
+
+        # Create two frames to group widgets.
+        self.top_frame = tkinter.Frame(self.main_window)
+        self.bottom_frame = tkinter.Frame(self.main_window)
+
+        # Create the widgets for the top frame.
+        self.prompt_label = tkinter.Label(self.top_frame, text='Enter a distance in kilometers:')
+        self.kilo_entry = tkinter.Entry(self.top_frame, width=10)
+
+        # Pack the top frame's widgets.
+        self.prompt_label.pack(side='left')
+        self.kilo_entry.pack(side='left')
+
+        # Create the button widgets for the bottom frame.
+        self.calc_button = tkinter.Button(self.bottom_frame, text='Convert', command=self.convert)
+        self.quit_button = tkinter.Button(self.bottom_frame, text='Quit',
+        command=self.main_window.destroy)
+        # Pack the buttons.
+        self.calc_button.pack(side='left')
+        self.quit_button.pack(side='left')
+
+        # Pack the frames.
+        self.top_frame.pack()
+        self.bottom_frame.pack()
+
+        # Enter the tkinter main loop.
+        tkinter.mainloop()
+
+    # The convert method is a callback function for
+    # the Calculate button.
+
+    def convert(self):
+        # Get the value entered by the user into the kilo_entry widget.
+        kilo = float(self.kilo_entry.get())
+        # Convert kilometers to miles.
+        miles = kilo * 0.6214
+
+        # Display the results in an info dialog box.
+        tkinter.messagebox.showinfo('Results', str(kilo) + ' kilometers is equal to ' + str(miles) + ' miles.')
+
+# Create an instance of the KiloConverterGUI class.
+kilo_conv = KiloConverterGUI()
+
+Using Labels as Output Fields
+When a StringVar object is associated with a Label widget, the Label
+widget displays any data that is stored in the StringVar object.
+If you don’t want to
+display a separate dialog box for your program’s output, you can use Label widgets in the
+program’s main window to dynamically display output. You simply create empty Label
+widgets in your main window, then write code that displays the desired data in those labels
+when a button is clicked.
+
+The tkinter module provides a class named StringVar that can be used along with a
+Label widget to display data. First, you create a StringVar object. Then, you create a
+Label widget and associate it with the StringVar object. From that point on, any value that
+is then stored in the StringVar object will automatically be displayed in the Label widget.
+
+kilo_converter2.py
+
+# This program converts distances in kilometers to miles. The result is displayed in a label
+# on the main window.
+import tkinter
+
+class KiloConverterGUI:
+    def __init__(self):
+
+        # Create the main window.
+        self.main_window = tkinter.Tk()
+
+        # Create three frames to group widgets.
+        self.top_frame = tkinter.Frame()
+        self.mid_frame = tkinter.Frame()
+        self.bottom_frame = tkinter.Frame()
+
+        # Create the widgets for the top frame.
+        self.prompt_label = tkinter.Label(self.top_frame, text='Enter a distance in kilometers:')
+        self.kilo_entry = tkinter.Entry(self.top_frame, width=10)
+
+        # Pack the top frame's widgets.
+        self.prompt_label.pack(side='left')
+        self.kilo_entry.pack(side='left')
+
+        # Create the widgets for the middle frame.
+        self.descr_label = tkinter.Label(self.mid_frame, text='Converted to miles:')
+
+        # We need a StringVar object to associate with
+        # an output label. Use the object's set method to store a string of blank characters.
+        self.value = tkinter.StringVar()
+
+        # Create a label and associate it with the StringVar object. Any value stored in the
+        # StringVar object will automatically be displayed in the label.
+        self.miles_label = tkinter.Label(self.mid_frame, textvariable=self.value)
+
+        # Pack the middle frame's widgets.
+        self.descr_label.pack(side='left')
+        self.miles_label.pack(side='left')
+
+        # Create the button widgets for the bottom frame.
+        self.calc_button = tkinter.Button(self.bottom_frame, text='Convert', command=self.convert)
+        self.quit_button = tkinter.Button(self.bottom_frame, text='Quit', command=self.main_window.destroy)
+
+        # Pack the buttons.
+        self.calc_button.pack(side='left')
+        self.quit_button.pack(side='left')
+
+        # Pack the frames.
+        self.top_frame.pack()
+        self.mid_frame.pack()
+        self.bottom_frame.pack()
+
+        # Enter the tkinter main loop.
+        tkinter.mainloop()
+
+    # The convert method is a callback function for the Calculate button.
+
+    def convert(self):
+        # Get the value entered by the user into the
+        # kilo_entry widget.
+        kilo = float(self.kilo_entry.get())
+
+        # Convert kilometers to miles.
+        miles = kilo * 0.6214
+
+        # Convert miles to a string and store it
+        # in the StringVar object. This will automatically
+        # update the miles_label widget.
+        self.value.set(miles)
+
+# Create an instance of the KiloConverterGUI class.
+kilo_conv = KiloConverterGUI()
+
+test_averages.py
+# This program uses a GUI to get three test scores and display their average.
+
+import tkinter
+
+class TestAvg:
+    def __init__(self):
+    # Create the main window.
+        self.main_window = tkinter.Tk()
+
+        # Create the five frames.
+        self.test1_frame = tkinter.Frame(self.main_window)
+        self.test2_frame = tkinter.Frame(self.main_window)
+        self.test3_frame = tkinter.Frame(self.main_window)
+        self.avg_frame = tkinter.Frame(self.main_window)
+        self.button_frame = tkinter.Frame(self.main_window)
+
+        # Create and pack the widgets for test 1.
+        self.test1_label = tkinter.Label(self.test1_frame, text='Enter the score for test 1:')
+        self.test1_entry = tkinter.Entry(self.test1_frame, width=10)
+        self.test1_label.pack(side='left')
+        self.test1_entry.pack(side='left')
+
+        # Create and pack the widgets for test 2.
+        self.test2_label = tkinter.Label(self.test2_frame, text='Enter the score for test 2:')
+        self.test2_entry = tkinter.Entry(self.test2_frame, width=10)
+        self.test2_label.pack(side='left')
+        self.test2_entry.pack(side='left')
+
+        # Create and pack the widgets for test 3.
+        self.test3_label = tkinter.Label(self.test3_frame, text='Enter the score for test 3:')
+        self.test3_entry = tkinter.Entry(self.test3_frame, width=10)
+        self.test3_label.pack(side='left')
+        self.test3_entry.pack(side='left')
+
+        # Create and pack the widgets for the average.
+        self.result_label = tkinter.Label(self.avg_frame, text='Average:')
+        self.avg = tkinter.StringVar() # To update avg_label
+        self.avg_label = tkinter.Label(self.avg_frame, textvariable=self.avg)
+        self.result_label.pack(side='left')
+        self.avg_label.pack(side='left')
+
+        # Create and pack the button widgets.
+        self.calc_button = tkinter.Button(self.button_frame, text='Average', command=self.calc_avg)
+        self.quit_button = tkinter.Button(self.button_frame, text='Quit', command=self.main_window.destroy)
+        self.calc_button.pack(side='left')
+        self.quit_button.pack(side='left')
+
+        # Pack the frames.
+        self.test1_frame.pack()
+        self.test2_frame.pack()
+        self.test3_frame.pack()
+        self.avg_frame.pack()
+        self.button_frame.pack()
+
+        # Start the main loop.
+        tkinter.mainloop()
+
+    # The calc_avg method is the callback function for the calc_button widget.
+
+    def calc_avg(self):
+        # Get the three test scores and store them in variables.
+        self.test1 = float(self.test1_entry.get())
+        self.test2 = float(self.test2_entry.get())
+        self.test3 = float(self.test3_entry.get())
+
+        # Calculate the average.
+        self.average = (self.test1 + self.test2 + self.test3) / 3.0
+
+        # Update the avg_label widget by storing the value of self.average in the StringVar object referenced by avg.
+        self.avg.set(self.average)
+
+# Create an instance of the TestAvg class.
+test_avg = TestAvg()
+
+Radio Buttons and Check Buttons
+Radio buttons are useful when you want the user to select one choice from several possible
+options. A radio button may be selected or deselected. Each radio button has a small circle that appears filled in
+when the radio button is selected, and appears empty when the radio button is deselected. The tkinter module provides a class named IntVar that can be used along with
+Radiobutton widgets. When you create a group of Radiobuttons, you associate them all
+with the same IntVar object. You also assign a unique integer value to each Radiobutton
+widget. When one of the Radiobutton widgets is selected, it stores its unique integer value
+in the IntVar object.
+
+radiobutton_demo.py
+
+# This program demonstrates a group of Radiobutton widgets.
+import tkinter
+import tkinter.messagebox
+
+class MyGUI:
+    def __init__(self):
+        # Create the main window.
+        self.main_window = tkinter.Tk()
+
+        # Create two frames. One for the Radiobuttons
+        # and another for the regular Button widgets.
+        self.top_frame = tkinter.Frame(self.main_window)
+        self.bottom_frame = tkinter.Frame(self.main_window)
+
+        # Create an IntVar object to use with the Radiobuttons.
+        self.radio_var = tkinter.IntVar()
+
+        # Set the intVar object to 1.
+        self.radio_var.set(1)
+
+        # Create the Radiobutton widgets in the top_frame.
+        self.rb1 = tkinter.Radiobutton(self.top_frame, text='Option 1', variable=self.radio_var, value=1)
+        self.rb2 = tkinter.Radiobutton(self.top_frame, text='Option 2', variable=self.radio_var, value=2)
+        self.rb3 = tkinter.Radiobutton(self.top_frame, text='Option 3', variable=self.radio_var, value=3)
+
+        # Pack the Radiobuttons.
+        self.rb1.pack()
+        self.rb2.pack()
+        self.rb3.pack()
+
+        # Create an OK button and a Quit button.
+        self.ok_button = tkinter.Button(self.bottom_frame, text='OK', command=self.show_choice)
+        self.quit_button = tkinter.Button(self.bottom_frame, text='Quit', command=self.main_window.destroy)
+
+        # Pack the Buttons.
+        self.ok_button.pack(side='left')
+        self.quit_button.pack(side='left')
+
+        # Pack the frames.
+        self.top_frame.pack()
+        self.bottom_frame.pack()
+
+        # Start the mainloop.
+        tkinter.mainloop()
+
+    # The show_choice method is the callback function for the OK button.
+    def show_choice(self):
+        tkinter.messagebox.showinfo('Selection', 'You selected option ' +
+        str(self.radio_var.get()))
+
+# Create an instance of the MyGUI class.
+my_gui = MyGUI()
+
+Check Buttons
+A check button appears as a small box with a label appearing next to it.
+Like radio buttons, check buttons may be selected or deselected. When a check button is
+selected, a small check mark appears inside its box. Although check buttons are often displayed
+in groups, they are not used to make mutually exclusive selections. Instead, the user
+is allowed to select any or all of the check buttons that are displayed in a group.
+You use the tkinter module’s Checkbutton class to create Checkbutton widgets. As with
+Radiobuttons, you can use an IntVar object along with a Checkbutton widget. Unlike
+Radiobuttons, however, you associate a different IntVar object with each Checkbutton.
+When a Checkbutton is selected, its associated IntVar object will hold the value 1. When
+a Checkbutton is not selected, its associated IntVar object will hold the value 0.
+
+checkbutton_demo.py
+
+# This program demonstrates a group of Checkbutton widgets.
+import tkinter
+import tkinter.messagebox
+
+class MyGUI:
+    def __init__(self):
+        # Create the main window.
+        self.main_window = tkinter.Tk()
+
+        # Create two frames. One for the checkbuttons
+        # and another for the regular Button widgets.
+        self.top_frame = tkinter.Frame(self.main_window)
+        self.bottom_frame = tkinter.Frame(self.main_window)
+
+        # Create three IntVar objects to use with the Checkbuttons.
+        self.cb_var1 = tkinter.IntVar()
+        self.cb_var2 = tkinter.IntVar()
+        self.cb_var3 = tkinter.IntVar()
+
+        # Set the intVar objects to 0.
+        self.cb_var1.set(0)
+        self.cb_var2.set(0)
+        self.cb_var3.set(0)
+
+        # Create the Checkbutton widgets in the top_frame.
+        self.cb1 = tkinter.Checkbutton(self.top_frame, text='Option 1', variable=self.cb_var1)
+        self.cb2 = tkinter.Checkbutton(self.top_frame, text='Option 2', variable=self.cb_var2)
+        self.cb3 = tkinter.Checkbutton(self.top_frame, text='Option 3', variable=self.cb_var3)
+
+        # Pack the Checkbuttons.
+        self.cb1.pack()
+        self.cb2.pack()
+        self.cb3.pack()
+
+        # Create an OK button and a Quit button.
+        self.ok_button = tkinter.Button(self.bottom_frame, text='OK', command=self.show_choice)
+        self.quit_button = tkinter.Button(self.bottom_frame, text='Quit', command=self.main_window.destroy)
+
+        # Pack the Buttons.
+        self.ok_button.pack(side='left')
+        self.quit_button.pack(side='left')
+
+        # Pack the frames.
+        self.top_frame.pack()
+        self.bottom_frame.pack()
+
+        # Start the mainloop.
+        tkinter.mainloop()
+
+    # The show_choice method is the callback function for the OK button.
+    def show_choice(self):
+        # Create a message string.
+        self.message = 'You selected:\n'
+
+        # Determine which Checkbuttons are selected and
+        # build the message string accordingly.
+        if self.cb_var1.get() == 1:
+            self.message = self.message + '1\n'
+        if self.cb_var2.get() == 1:
+            self.message = self.message + '2\n'
+        if self.cb_var3.get() == 1:
+            self.message = self.message + '3\n'
+
+        # Display the message in an info dialog box.
+        tkinter.messagebox.showinfo('Selection', self.message)
+
+# Create an instance of the MyGUI class.
+my_gui = MyGUI()
