@@ -1,0 +1,168 @@
+Exercises 2025-08-06
+1. Lap Times
+Write a program that asks the user to enter the number of times that they have run around 
+a racetrack, and then uses a loop to prompt them to enter the lap time for each of their laps. 
+When the loop finishes, the program should display the time of their fastest lap, the time of 
+their slowest lap, and their average lap time.
+
+2. Average Rainfall
+Write a program that uses nested loops to collect data and calculate the average rainfall over 
+a period of years. The program should first ask for the number of years. The outer loop will 
+iterate once for each year. The inner loop will iterate twelve times, once for each month. 
+Each iteration of the inner loop will ask the user for the inches of rainfall for that month. 
+After all iterations, the program should display the number of months, the total inches of 
+rainfall, and the average rainfall per month for the entire period.
+
+3.  Ocean Levels
+Assuming the ocean’s level is currently rising at about 1.6 millimeters per year, create an 
+application that displays the number of millimeters that the ocean will have risen each year 
+for the next 25 years.
+
+4. Calculating the Factorial of a Number
+ In mathematics, the notation n! represents the factorial of the nonnegative integer n. The 
+factorial of n is the product of all the nonnegative integers from 1 to n. For example,
+ 7! 1 x 2 * 3 x 4 x 5 x 6 x 7 = 5,040
+
+5.  Feet to Inches
+One foot equals 12 inches. Write a function named feet_to_inches that accepts a number 
+of feet as an argument and returns the number of inches in that many feet. Use the function 
+in a program that prompts the user to enter a number of feet then displays the number of 
+inches in that many feet.
+
+
+6. Kinetic Energy
+ In physics, an object that is in motion is said to have kinetic energy. The following formula 
+can be used to determine a moving object’s kinetic energy:
+     KE = ½ mv^2
+The variables in the formula are as follows: KE is the kinetic energy, m is the object’s mass 
+in kilograms, and v is the object’s velocity in meters per second.
+ Write a function named kinetic_energy that accepts an object’s mass (in kilograms) 
+and velocity (in meters per second) as arguments. The function should return the amount 
+of kinetic energy that the object has. Write a program that asks the user to enter values 
+for mass and velocity, then calls the kinetic_energy function to get the object’s kinetic 
+energy.
+
+7. Test Average and Grade
+ Write a program that asks the user to enter five test scores. The program should display a 
+letter grade for each score and the average test score. Write the following functions in the 
+program:
+ •	calc_average. This function should accept five test scores as arguments and return the 
+average of the scores.
+ •	determine_grade. This function should accept a test score as an argument and return 
+a letter grade for the score based on the following grading scale:
+
+ Score   Letter Grade
+ 90–100     A
+ 80–89      B
+ 70–79      C
+ 60–69      D
+ Below 60   E
+
+ 8. Word List File Writer
+ Write a program that asks the user how many words they would like to write to a file, and 
+then asks the user to enter that many words, one at a time. The words should be written 
+to a file.
+9. Word List File Reader
+ This exercise assumes you have completed the Programming Exercise 7, Word List File 
+Writer. Write another program that reads the words from the file and displays the follow
+ing data:
+ •	The	number of words in the file.
+ •	The	longest	word in the file.
+ •	The	average length	of all of the words	in the file
+
+10. Golf Scores
+The Springfork Amateur Golf Club has a tournament every weekend. The club president 
+has asked you to write two programs:
+1. A program that will read each player’s name and golf score as keyboard input, then 
+save these as records in a file named golf.txt. (Each record will have a field for the 
+player’s name and a field for the player’s score.)
+2. A program that reads the records from the golf.txt file and displays them.
+
+11.  Number Analysis Program
+ Design a program that asks the user to enter a series of 20 numbers. The program should 
+store the numbers in a list then display the following data:
+ •	The lowest number in the list
+ •	The highest number in the list
+ •	The total of the numbers in the list
+ •	The average of the numbers in the list
+
+12. Valid Number Information
+ Design a program that uses a loop to build a list named valid_numbers that contains only 
+the numbers between 0 and 100 from the numbers list below. The program should then 
+determine and display the total and average of the values in the valid_numbers list
+
+13. Expense Pie Chart
+ Create a text file that contains your expenses for last month in the following categories:
+ •	Rent
+ •	Gas
+ •	Food
+ •	Clothing
+ •	Car payment
+ •	Misc
+ Write a Python program that reads the data from the file and uses matplotlib to plot a pie 
+chart showing how you spend your money.
+
+14. Name Display
+Write a program that gets strings containing a person’s first and last name as separate 
+values, and then displays their “initials”, “name in address book”, and “username”. For 
+example, if the user enters a first name of “John” and a last name of “Smith”, the program 
+should display “J.S.”, “John SMITH”, and “jsmith”.
+15.  Sum of Digits in a String
+ Write a program that asks the user to enter a series of single-digit numbers with nothing 
+separating them. The program should display the sum of all the single digit numbers in the 
+string. For example, if the user enters 2514, the method should return 12, which is the sum 
+of 2, 5, 1, and 4.
+
+16.  Vowels and Consonants
+Write a program with a function that accepts a string as an argument and returns the 
+number of vowels that the string contains. The application should have another function  that accepts a string as an argument and returns the number of consonants that the string contains. The application should let the user enter a string, and should display the number of vowels and the number of consonants it contains.
+
+17. Galilean Moons of Jupiter
+ Write a program that creates a dictionary containing the names of the Galilean moons of 
+Jupiter	as	keys	and	their	mean	radiuses	(in	kilometers)	as	values.	The	dictionary	should	
+contain the following key-value pairs:
+ Moon Name (key)  Mean Radius (value)
+ Io                 1821.6
+ Europa             1560.8
+ Ganymede           2634.1
+ Callisto           2410.3
+
+ The program should also create a dictionary containing the moon names and their surface 
+gravities (in meters per second squared). The dictionary should contain the following key
+value pairs: 
+Moon Name (key)  Surface Gravity (value)
+ Io                     1.796
+ Europa                 1.314
+ Ganymede               1.428
+ Callisto               1.235
+
+ The program should also create a dictionary containing the moon names and their orbital 
+periods (in days). The dictionary should contain the following key-value pairs:
+ Moon Name (key)   Orbital Period (value)
+ Io                     1.769
+ Europa                 3.551
+ Ganymede               7.154
+ Callisto               16.689
+The	program	should	let	the	user	enter	the	name	of	a	Galilean	moon	of	Jupiter,	then	it	
+should display the moon’s mean radius, surface gravity and orbital period.
+
+18. Pickled Vegetables
+ Write a program that keeps vegetable names and prices in a dictionary as key-value pairs. 
+The program should display a menu that lets the user see a list of all vegetables and their 
+prices, add a new vegetable and price, change the price of an existing vegetable, and delete 
+an existing vegetable and price. The program should pickle the dictionary and save it to a 
+file when the user exits the program. Each time the program starts, it should retrieve the 
+dictionary from the file and unpickle it.
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
