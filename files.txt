@@ -1,4 +1,4 @@
-Introduction to File Input and Output
+Introduction to File Input and Outputs
 When a program needs to save data for later use, it writes the data in a file. The data can be read from the file at a later time.
 
 When a piece of data is read from a file, it is copied from the file into RAM and referenced by a variable.  The term input file is used to describe a file from which data is read. It is called an input file because the program gets input from the file.
